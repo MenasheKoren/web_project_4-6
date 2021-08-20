@@ -1,0 +1,9 @@
+.header {
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+.header__logo {
+  max-width: 100%;
+  margin: 1.75em 0 2em 1.6875em;
+}
