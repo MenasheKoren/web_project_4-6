@@ -7,3 +7,9 @@
   max-width: 100%;
   margin: 1.75em 0 2em 1.6875em;
 }
+
+@media screen and (min-width: 880px) {
+  .header__logo {
+    margin:  2.8125em 0 2.5625em;
+  }
+}
