@@ -51,6 +51,11 @@
 .card__like {
   height: 19px;
   width: 21px;
+  transition: opacity ease .2;
+}
+
+.card__like:hover {
+  opacity: .5;
 }
 
 @media screen and (min-width: 880px) {
