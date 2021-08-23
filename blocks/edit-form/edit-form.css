@@ -10,7 +10,12 @@
   display: none;
   flex-direction: column;
   justify-content: center;
-  }
+
+}
+
+.edit-form_opened {
+  display: flex;
+}
 
 .form__pop-up {
   display: flex;
