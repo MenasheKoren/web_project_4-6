@@ -24,7 +24,6 @@
 
 
 .form__close {
-  background: #000000;
   width: 1.625em;
   align-self: flex-end;
   margin: 0 18.62px 13.62px 0;
@@ -37,9 +36,8 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   background: rgba(255, 255, 255, 1);
-  max-width: calc(100% - 2.375em);
+  min-width: 17.625em;
   text-align: left;
-  margin: 0 auto;
 }
 
 .form__title {
