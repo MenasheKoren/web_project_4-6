@@ -97,6 +97,7 @@
 
   .name__details {
     margin: 0;
+    text-align: left;
   }
 
   .name__default {

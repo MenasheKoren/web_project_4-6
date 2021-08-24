@@ -1,0 +1,11 @@
+.hover-effect {
+  transition: opacity ease .2;
+}
+
+.hover-effect_icon:hover {
+  opacity: .6;
+}
+
+.hover-effect_button:hover {
+  opacity: .8;
+}
