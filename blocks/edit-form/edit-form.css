@@ -25,7 +25,7 @@
 
 .form__close {
   background: #000000;
-  max-width: 1.625em;
+  width: 1.625em;
   align-self: flex-end;
   margin: 0 18.62px 13.62px 0;
 }
@@ -61,7 +61,7 @@
   line-height: 17px;
 }
 
-.field__name {
+.field__input {
   border-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding: 0 0 9px 0;
@@ -70,11 +70,8 @@
 
 }
 
-.field__profession {
-  border-style: none;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0 0 9px 0;
-  max-width: 100%;
+.field__input:nth-last-child(2) {
+  margin: 0 auto;
 }
 
 .form__save {
@@ -90,13 +87,16 @@
 
 @media screen and (min-width: 458px) {
   .form__pop-up {
-/*    max-width: calc(55em - 2.375em); */
-/*    margin: 0 auto; */
+    position: relative;
   }
 
   .form__close {
     width: 2.5em;
+    height: 2.5em;
     margin: 0;
+    position: fixed;
+    top: 13.5em;
+    right: 9.25em;
   }
 
   .form__container {
@@ -108,11 +108,7 @@
     align-items: center;
   }
 
-  .field__name {
-    width: 22.25em;
-  }
-
-  .field__profession {
+  .field__input {
     width: 22.25em;
   }
 
