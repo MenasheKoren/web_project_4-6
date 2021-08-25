@@ -1,0 +1,16 @@
+.form__close {
+  width: 1.625em;
+  position: absolute;
+  top: -2em;
+  right: 0;
+}
+
+@media screen and (min-width: 458px) {
+   .form__close {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    top: -2.5em;
+    right: -2.5em;
+  }
+}

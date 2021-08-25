@@ -1,0 +1,10 @@
+.form__title {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 1);
+  max-width: 100%;
+  padding: 1.5625em 1.375em 4.75em;
+  margin: 0;
+}
+
