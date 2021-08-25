@@ -1,16 +1,19 @@
 # Project 4: Around The U.S.
-
+https://menashekoren.github.io/web_project_4/
 ### Overview
 
-* Figma
-* Images
+* Intro
+* Upcoming
+* Technologies
 
-**Figma**
+**Intro**
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+This is a demonstrative project, in coordination with Practicum100 about pictures that people take accross the U.S., in which a user is able to change the name and/or the profession in the profile via a pop-up form.
 
-**Images**
+**Upcoming**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+In the future we plan on making the site fully interactive, with the ability to change the profile picture as well as add/remove their own photos. In addition, the user should be able to like pictures they enjoy.
 
-Have fun with JavaScript!
+**Technologies**
+
+This project was done using HTML, CSS and JavaScript via Vim as the text editor. 
