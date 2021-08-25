@@ -1,4 +1,4 @@
-.edit__name {
+.edit-name {
   font-weight: 500;
   font-size: 22px;
   line-height: 123%;
@@ -8,7 +8,7 @@
 
 
 @media screen and (min-width: 768px) {
-   .edit__name {
+   .edit-name {
     font-size: 42px;
     line-height: 114%;
   }
