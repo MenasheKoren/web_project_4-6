@@ -1,4 +1,4 @@
-.add__icon {
+.add-icon {
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   padding: 1.0625em 8.3125em;
@@ -9,7 +9,7 @@
 
 
 @media screen and (min-width: 768px) {
-   .add__icon {
+   .add-icon {
     margin: 0;
     padding: .875em 4em;
     height: 1.375em;
