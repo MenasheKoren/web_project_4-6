@@ -1,0 +1,13 @@
+.form__pop-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+}
+
+@media screen and (min-width: 458px) {
+  .form__pop-up {
+    position: relative;
+  }
+
+}

@@ -1,0 +1,21 @@
+.footer {
+  padding: 3.125em 1.1875em 2.25em;
+}
+
+.footer__text {
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+  color: rgba(84, 84, 84, 1);
+
+}
+
+@media screen and (min-width: 880px) {
+  .footer {
+    padding: 4.25em 0 3.75em;
+  }
+
+  .footer__text {
+    font-size: 18px;
+  }
+}

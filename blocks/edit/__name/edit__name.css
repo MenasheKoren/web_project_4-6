@@ -1,0 +1,18 @@
+.edit__name {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 123%;
+  margin: 0 10px 0 0;
+}
+
+
+
+@media screen and (min-width: 768px) {
+   .edit__name {
+    font-size: 42px;
+    line-height: 114%;
+  }
+
+}
+
+
