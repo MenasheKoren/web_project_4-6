@@ -1,104 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <title>Web Project 4</title>
-  </head>
-  <body class="page">
-    <div class="content">
-      <header class="header">
-        <img src="./images/logo.svg" alt="Around the U.S. logo" class="header__logo">
-      </header>
 
-      <main class="main">
-        <section class="profile">
-          <div class="avatar">
-            <img class="avatar__image" src="./images/cousteau.jpg" alt="Jacques Cousteau smiling on the sea">
-          </div>
-          <div class="profile-info">
-            <div class="profile-info__name">
-              <div class="profile-info__edit">
-                <h1 class="edit__name ellipses">Jacques Cousteau</h1>
-                <img class="edit__icon hover-effect hover-effect_icon" src="./images/edit.svg" alt="A pen icon">
-              </div>
-              <p class="profile-info__profession ellipses">Explorer</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./pages/index.css" />
+  <title>Web Project 4</title>
+</head>
+
+<body class="page">
+  <div class="content">
+    <header class="header">
+      <img src="./images/logo.svg" alt="Around the U.S. logo" class="header__logo">
+    </header>
+
+    <main class="main">
+      <section class="profile">
+        <div class="avatar">
+          <img class="avatar__image" src="./images/cousteau.jpg" alt="Jacques Cousteau smiling on the sea">
+        </div>
+        <div class="profile-info">
+          <div class="profile-info__name">
+            <div class="profile-info__edit">
+              <h1 class="edit-name ellipses">Jacques Cousteau</h1>
+              <img class="edit-icon hover-effect hover-effect_icon" src="./images/edit.svg" alt="A pen icon">
             </div>
-            <img class="add__icon hover-effect hover-effect_icon" src="./images/add.svg" alt="A plus sign">
+            <p class="profile-info__profession ellipses">Explorer</p>
           </div>
-        </section>
+          <img class="add__icon hover-effect hover-effect_icon" src="./images/add.svg" alt="A plus sign">
+        </div>
+      </section>
 
-        <section class="form">
-          <div class="form__pop-up">
-            <div class="form__container">
-              <img class="form__close hover-effect hover-effect_icon" src="./images/close-icon.svg" alt="An x representing a close icon">
-              <h2 class="form__title">Edit profile</h2>
-              <form class="form__field">
-                <label for="name">
-                  <input class="field__input field__input_type_name"  id="name" name="name" type="text"  placeholder="name" value="Jacques Cousteau">
-                </label>
-                <label for="profession">
-                  <input class="field__input field__input_type_profession"  name="profession" id="profession"  type="text"  placeholder="profession" value="Explorer">
-                </label>
-                <button class="form__save hover-effect hover-effect_button" type="submit">Save</button>
-              </form>
-            </div>
+      <section class="form">
+        <div class="form__pop-up">
+          <div class="form__container">
+            <img class="form__close hover-effect hover-effect_icon" src="./images/close-icon.svg"
+              alt="An x representing a close icon">
+            <h2 class="form__title">Edit profile</h2>
+            <form class="form__field">
+              <label for="name">
+                <input class="field-input field-input_type_name" id="name" name="name" type="text" placeholder="name"
+                  value="Jacques Cousteau">
+              </label>
+              <label for="profession">
+                <input class="field-input field-input_type_profession" name="profession" id="profession" type="text"
+                  placeholder="profession" value="Explorer">
+              </label>
+              <button class="form__save hover-effect hover-effect_button" type="submit">Save</button>
+            </form>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="cards">
-          <figure class="card">
-            <img class="card__image" src="./images/yosemite-valley.jpg" alt="A river, surrounded by forest trees, running toward a mountain in Yosemite Valley at sunrise">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Yosemite Valley</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-          <figure class="card">
-            <img class="card__image" src="./images/lake-louise.jpg" alt="The reflection of two mountains on a still Lake Louise">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Lake Louise</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-          <figure class="card">
-            <img class="card__image" src="./images/bald-mountains.jpg" alt="The sun setting over the Bald Mountains">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Bald Mountains</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-          <figure class="card">
-            <img class="card__image" src="./images/latemar.jpg" alt="A starry night over Latemar mountains">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Latemar</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-          <figure class="card">
-            <img class="card__image" src="./images/vanoise-national-park.jpg" alt="A beach view of a mountain reflecting in a still lake at Vanoise National Park">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Vanoise National Park</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-          <figure class="card">
-            <img class="card__image" src="./images/lago-di-braies.jpg" alt="Half-a-dozen rowboats on a mountain lake, at Lago di Braies, docked by a wooden cabin">
-            <figcaption class="card__caption">
-              <p class="card__location ellipses">Lago di Braies</p>
-              <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg" alt="A heart shaped like-logo">
-            </figcaption>
-          </figure>
-        </section>
+      <section class="cards">
+        <figure class="card">
+          <img class="card__image" src="./images/yosemite-valley.jpg"
+            alt="A river, surrounded by forest trees, running toward a mountain in Yosemite Valley at sunrise">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Yosemite Valley</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/lake-louise.jpg"
+            alt="The reflection of two mountains on a still Lake Louise">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Lake Louise</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/bald-mountains.jpg" alt="The sun setting over the Bald Mountains">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Bald Mountains</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/latemar.jpg" alt="A starry night over Latemar mountains">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Latemar</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/vanoise-national-park.jpg"
+            alt="A beach view of a mountain reflecting in a still lake at Vanoise National Park">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Vanoise National Park</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/lago-di-braies.jpg"
+            alt="Half-a-dozen rowboats on a mountain lake, at Lago di Braies, docked by a wooden cabin">
+          <figcaption class="card__caption">
+            <p class="card__location ellipses">Lago di Braies</p>
+            <img class="card__like hover-effect hover-effect_icon" src="./images/like.svg"
+              alt="A heart shaped like-logo">
+          </figcaption>
+        </figure>
+      </section>
 
-      </main>
+    </main>
 
-      <footer class="footer">
-        <p class="footer__text">&copy; 2021 Around The U.S.</p>
-      </footer>
-    </div>
+    <footer class="footer">
+      <p class="footer__text">&copy; 2021 Around The U.S.</p>
+    </footer>
+  </div>
 
-    <script src="./scripts/index.js"></script>
-  </body>
+  <script src="./scripts/index.js"></script>
+</body>
+
 </html>
