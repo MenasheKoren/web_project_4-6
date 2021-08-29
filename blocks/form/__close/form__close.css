@@ -5,7 +5,7 @@
   right: 0;
 }
 
-@media screen and (min-width: 458px) {
+@media screen and (min-width: 515px) {
    .form__close {
     width: 2.5em;
     height: 2.5em;

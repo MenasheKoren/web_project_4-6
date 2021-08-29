@@ -5,14 +5,16 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   background: rgba(255, 255, 255, 1);
-  min-width: 17.625em;
+  width: 17.625em;
+  height: 20.125em;
   text-align: left;
   position: relative;
 }
 
-@media screen and (min-width: 458px) {
+@media screen and (min-width: 515px) {
     .form__container {
     width: 26.875em;
+    height: 20.625em;
   }
 
 }
