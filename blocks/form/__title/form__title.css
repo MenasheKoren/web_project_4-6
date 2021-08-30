@@ -1,17 +1,17 @@
 .form__title {
   font-weight: 900;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125em;
+  line-height: 122%;
   color: rgba(0, 0, 0, 1);
   max-width: 100%;
-  padding: 1.5625em 1.375em 4.75em;
+  padding: 1.5625rem 1.375rem 4.75rem;
   margin: 0;
 }
 
 @media screen and (min-width: 515px) {
   .form__title {
-    font-weight: 900;
-    font-size: 24px;
+    font-size: 1.5em;
     line-height: 121%;
+    padding: 2.125rem 2.25rem 3.375rem;
   }
 }

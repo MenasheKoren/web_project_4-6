@@ -1,18 +1,14 @@
 .field-input {
   border-style: none;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0 0 9px 0;
-  margin-bottom: 30px;
-  max-width: 100%;
+  border-bottom: .0625em solid rgba(0, 0, 0, .2);
+  padding: 0 0 .5625em 0;
+  margin-bottom: 2.6875em;
+  width: 100%;
+  font-size: .875em;
+  line-height: 1.2;
 }
 
 .field-input:nth-last-child(2) {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 458px) {
-  .field-input {
-    width: 22.25em;
-  }
-
-}

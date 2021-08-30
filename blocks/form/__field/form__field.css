@@ -1,15 +1,10 @@
 .form__field {
-  max-width: calc(100% - 2.375em);
+  max-width: calc(100% - 2.75rem);
   margin: 0 auto;
-  flex-direction: column;
-  display: flex;
-  font-size: 14px;
-  line-height: 17px;
 }
 
-@media screen and (min-width: 458px) {
+@media screen and (min-width: 515px) {
     .form__field {
     max-width: 22.375em;
-    align-items: center;
   }
 }
