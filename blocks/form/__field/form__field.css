@@ -1,10 +1,11 @@
 .form__field {
   max-width: calc(100% - 2.75rem);
-  margin: 0 auto;
+  margin: 0 auto 1.5625rem;
 }
 
 @media screen and (min-width: 515px) {
     .form__field {
     max-width: 22.375em;
+    margin: 0 auto 3.4375rem;
   }
 }
