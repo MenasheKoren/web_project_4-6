@@ -1,5 +1,5 @@
 let form = document.querySelector(".form");
-let edit = document.querySelector(".edit-icon");
+let edit = document.querySelector(".edit-button");
 let close = document.querySelector(".form__close");
 
 function closePopUp() {
