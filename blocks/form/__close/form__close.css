@@ -1,16 +1,21 @@
 .form__close {
-  width: 1.625em;
   position: absolute;
-  top: -2em;
+  top: -2rem;
   right: 0;
+  background: transparent url(../../../images/close-icon.svg) no-repeat center;
+  background-size: 1.625rem 1.625rem;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-style: none;
 }
 
 @media screen and (min-width: 515px) {
    .form__close {
-    width: 2.5em;
-    height: 2.5em;
+    background-size: 2.5rem 2.5rem;
     margin: 0;
-    top: -2.5em;
-    right: -2.5em;
+    top: -2.5rem;
+    right: -2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
