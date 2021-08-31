@@ -12,14 +12,13 @@
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/avatar/avatar.css);
-@import url(../blocks/avatar/__image/avatar__image.css);
 @import url(../blocks/profile-info/profile-info.css);
 @import url(../blocks/profile-info/__name/profile-info__name.css);
 @import url(../blocks/profile-info/__edit/profile-info__edit.css);
 @import url(../blocks/edit-name/edit-name.css);
 @import url(../blocks/edit-button/edit-button.css);
 @import url(../blocks/profile-info/__profession/profile-info__profession.css);
-@import url(../blocks/add-icon/add-icon.css);
+@import url(../blocks/add-button/add-button.css);
 
 
 @import url(../blocks/form/form.css);

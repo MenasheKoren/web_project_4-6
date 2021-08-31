@@ -1,9 +1,21 @@
 .button{
- transition: transform ease-in-out .2s, opacity .2s;
+ transition: all .2s;
 }
 
-.button:hover{
+.button:hover {
+  cursor: pointer;
+}
+
+.button_hover_darker:hover{
   opacity: .8;
+}
+
+.button_hover_dark:hover {
+  opacity: .6;
+}
+
+.button_hover_light:hover {
+  opacity: .5;
 }
 
 .button:active {
