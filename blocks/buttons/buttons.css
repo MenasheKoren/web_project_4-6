@@ -1,0 +1,11 @@
+.button{
+ transition: transform ease-in-out .2s, opacity .2s;
+}
+
+.button:hover{
+  opacity: .8;
+}
+
+.button:active {
+  transform: translateY(.25em);
+}
