@@ -1,5 +1,8 @@
 .card__like {
-  height: 19px;
-  width: 21px;
+  height: 1.1875rem;
+  width: 1.3125rem;
+  background: url(../../../images/like.svg) no-repeat center;
+  background-size: 1.3125rem 1.1875rem;
+  border-style: none;
 }
 

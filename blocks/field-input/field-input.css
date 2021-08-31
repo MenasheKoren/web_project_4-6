@@ -6,9 +6,13 @@
   width: 100%;
   font-size: .875em;
   line-height: 1.2;
+  transition: all .2s;
 }
 
 .field-input:nth-last-child(2) {
   margin: 0 auto;
 }
 
+field-input:focus {
+  background-color: rgba(220, 220, 220, 1);
+}
