@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 515px) {
     .form__field {
-    max-width: 22.375em;
-    margin: 0 auto 3.4375rem;
+    max-width: 22.375rem;
+    margin: 0 auto 2.25rem;
   }
 }
