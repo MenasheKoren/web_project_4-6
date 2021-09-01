@@ -1,8 +1,8 @@
 .field-input {
   border-style: none;
-  border-bottom: .0625em solid rgba(0, 0, 0, .2);
-  padding: 0 0 .5625em 0;
-  margin-bottom: 2.6875em;
+  border-bottom: .0625rem solid rgba(0, 0, 0, .2);
+  padding: 0 0 .5625rem 0;
+  margin-bottom: 1.875rem;
   width: 100%;
   font-size: .875em;
   line-height: 1.2;
