@@ -3,9 +3,9 @@
 
 @import url(../blocks/ellipses/ellipses.css);
 @import url(../blocks/button/button.css);
-@import url(../blocks/button/_hover/_light/button_hover_light.css);
-@import url(../blocks/button/_hover/_dark/button_hover_dark.css);
-@import url(../blocks/button/_hover/_darker/button_hover_darker.css);
+@import url(../blocks/button/_hover/button_hover_light.css);
+@import url(../blocks/button/_hover/button_hover_dark.css);
+@import url(../blocks/button/_hover/button_hover_darker.css);
 
 @import url(../blocks/page/page.css);
 @import url(../blocks/content/content.css);
