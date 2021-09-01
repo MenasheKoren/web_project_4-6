@@ -2,15 +2,15 @@
   border: 1px solid rgba(255, 255, 255, 1);
   padding: .328125rem;
   background: url(../../images/edit.svg) no-repeat center;
-  height: 1.125rem;
-  width: 1.125rem;
+  min-height: 1.125rem;
+  min-width: 1.125rem;
 }
 
 
 @media screen and (min-width: 768px) {
    .edit-button {
-    height: 1.5rem;
-    width: 1.5rem;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
     padding: .4375rem;
   }
 }
