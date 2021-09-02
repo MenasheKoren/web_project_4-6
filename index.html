@@ -43,55 +43,10 @@
           </div>
         </section>
 
-        <section class="cards">
-          <div class="card">
-            <img class="card__image" src="./images/yosemite-valley.jpg"
-                                     alt="A river, surrounded by forest trees, running toward a mountain in Yosemite Valley at sunrise">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Yosemite Valley</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/lake-louise.jpg"
-                                     alt="The reflection of two mountains on a still Lake Louise">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Lake Louise</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
+        <section>
+          <ul class="cards">
 
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/bald-mountains.jpg" alt="The sun setting over the Bald Mountains">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Bald Mountains</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/latemar.jpg" alt="A starry night over Latemar mountains">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Latemar</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/vanoise-national-park.jpg"
-                                     alt="A beach view of a mountain reflecting in a still lake at Vanoise National Park">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Vanoise National Park</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/lago-di-braies.jpg"
-                                     alt="Half-a-dozen rowboats on a mountain lake, at Lago di Braies, docked by a wooden cabin">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Lago di Braies</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
+          </ul>
         </section>
 
       </main>
@@ -100,6 +55,18 @@
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
     </div>
+
+
+    <template class="card-template">
+      <li class="card">
+        <img class="card__image" src=""
+                                 alt="">
+        <div class="card__caption">
+          <h3 class="card__location ellipses"></h3>
+          <button class="card__like button button_hover_light" type="button"></button>
+        </div>
+      </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>
