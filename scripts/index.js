@@ -28,6 +28,32 @@ const initialCards = [
 const templateCardItem = document.querySelector('.card-template').content.querySelector('.card');
 const list = document.querySelector('.card-list');
 
+// modals
+const editForm = document.querySelector('.form_type_edit');
+const addCardForm = document.querySelector('.form_type_add-card');
+
+// close buttons
+const editFormCloseButton = editForm.querySelector('.form__close');
+const addCardFormCloseButton = addCardForm.querySelector('.form__close');
+
+// open modal buttons
+const editProfileButton = document.querySelector('.edit-button');
+const addCardButton = document.querySelector('.add-button');
+
+
+// inputs
+const profileNameInput = editForm.querySelector('.field-input_type_name');
+const profileProfessionInput = editForm.querySelector('.field-input_type_profession');
+const cardNameInput = addCardForm.querySelector('field-input_type_card-title');
+const cardLinkInput = addCardForm.querySelector('.field-input_type_card-link');
+
+editProfileButton.addEventListener('click', () => {
+  editForm.classList.add('form_opened')
+});
+
+editProfileButton.addEventListener('click', () => {
+  editForm.classList.remove('form_opened')
+});
 
 
 initialCards.forEach(function (cardData) {

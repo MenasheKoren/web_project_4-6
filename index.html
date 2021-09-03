@@ -29,19 +29,6 @@
           </div>
         </section>
 
-        <section class="form">
-          <div class="form__container">
-            <button class="form__close button button_hover_dark" type="button"></button>
-            <h2 class="form__title">Edit profile</h2>
-            <form class="form__field" name="profileForm">
-              <input class="field-input field-input_type_name" id="name" name="name" type="text" placeholder="name"
-                                                                                                 value="Jacques Cousteau">
-              <input class="field-input field-input_type_profession" name="profession" id="profession" type="text"
-                                                                                                       placeholder="profession" value="Explorer">
-              <button class="form__save button button_hover_darker" type="submit">Save</button>
-            </form>
-          </div>
-        </section>
 
         <section class="cards">
           <ul class="card-list">
@@ -54,6 +41,32 @@
       <footer class="footer">
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
+
+      <section class="form form_type_edit">
+        <div class="form__container">
+          <button class="form__close button button_hover_dark" type="button"></button>
+          <h2 class="form__title">Edit profile</h2>
+          <form class="form__field" name="profileForm">
+            <input class="field-input field-input_type_name" name="name" type="text" placeholder="Name">
+            <input class="field-input field-input_type_profession" name="profession" type="text" placeholder="Profession">
+            <button class="form__save button button_hover_darker" type="submit">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="form form_type_add-card">
+        <div class="form__container">
+          <button class="form__close button button_hover_dark" type="button"></button>
+          <h2 class="form__title">New Place</h2>
+          <form class="form__field" name="profileForm">
+            <input class="field-input field-input_type_card-title" name="card-title" type="text" placeholder="Title">
+            <input class="field-input field-input_type_card-link" name="card-link" type="text" placeholder="Image URL">
+            <button class="form__save button button_hover_darker" type="submit">Save</button>
+          </form>
+        </div>
+
+      </section>
+
     </div>
 
 
