@@ -38,6 +38,7 @@ initialCards.forEach(function (cardData) {
 
   title.textContent = cardData.name;
   image.src = cardData.link;
+  image.alt = cardData.name;
 
   list.append(cardItem)
 
