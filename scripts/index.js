@@ -26,7 +26,7 @@ const initialCards = [
 ];
 
 const templateCardItem = document.querySelector('.card-template').content.querySelector('.card');
-const list = document.querySelector('.cards');
+const list = document.querySelector('.card-list');
 
 
 
