@@ -35,6 +35,7 @@
 
 
 @import url(../blocks/cards/cards.css);
+@import url(../blocks/card-list/card-list.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);
 @import url(../blocks/card/__caption/card__caption.css);
