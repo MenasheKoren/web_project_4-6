@@ -48,31 +48,56 @@ const profileNameInput = editModal.querySelector('.field-input_type_name');
 const profileProfessionInput = editModal.querySelector('.field-input_type_profession');
 const cardNameInput = addCardModal.querySelector('.field-input_type_card-title');
 const cardLinkInput = addCardModal.querySelector('.field-input_type_card-link');
-
+const profileNameValue = document.querySelector('.edit-name');
+const profileProfessionValue = document.querySelector('.profile-info__profession');
 
 // forms
 const editForm = editModal.querySelector('.popup__form');
 const addCardForm = addCardModal.querySelector('.popup__form');
 
-// image modal elements
-// const imagePopupFigure = document.querySelector()
+// submit
+const submitButton = document.querySelector('.popup__save');
 
 // functions
 function toggleModal(popup) {
   popup.classList.toggle('popup_opened')
 };
+/*
+function handleFormSubmit(evt, modal) {
+  modal.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    if (modal === editModal) {
+      document.querySelector(".edit-name").textContent = profileNameInput.value;
+      document.querySelector(".profile-info__profession").textContent = profileProfessionInput.value;
+    } else if (modal === addCardModal) {
+      generateCard({name: cardNameInput.value, link: cardLinkInput.value});
+    };
+
+    toggleModal(modal);
+  });
+
+}
+*/
+editForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  document.querySelector(".edit-name").textContent = profileNameInput.value;
+  document.querySelector(".profile-info__profession").textContent = profileProfessionInput.value;
+  toggleModal(editModal);
+});
 
 addCardForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  console.log(cardNameInput.value, cardLinkInput.value);
-
   generateCard({name: cardNameInput.value, link: cardLinkInput.value});
   toggleModal(addCardModal);
-
 });
 
 
 editProfileButton.addEventListener('click', () => {
+  const profileName = profileNameValue.textContent;
+  profileNameInput.value = profileName;
+  const profileProfession = profileProfessionValue.textContent;
+  profileProfessionInput.value = profileProfession;
   toggleModal(editModal);
 });
 
@@ -115,17 +140,16 @@ function generateCard(cardData) { // {name, link}
 
   image.addEventListener('click', () => {
     toggleModal(imageModal);
-    // fill image src => el.src = cardData.link
     image.src = cardData.link;
     console.log(image.src);
-    //  fill caption => el.textContent = cardData.name
     title.textContent = cardData.name;
     console.log(title.textContent);
   });
 
 
-  list.append(cardItem)
+  list.prepend(cardItem)
 };
 
 
 initialCards.forEach(generateCard);
+//submitButton.addEventListener('submit', handleFormSubmit);
