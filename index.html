@@ -42,26 +42,37 @@
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
 
-      <section class="form form_type_edit">
-        <div class="form__container">
-          <button class="form__close button button_hover_dark" type="button"></button>
-          <h2 class="form__title">Edit profile</h2>
-          <form class="form__field" name="profileForm">
+      <section class="popup popup_type_edit">
+        <div class="popup__container">
+          <button class="popup__close button button_hover_dark" type="button"></button>
+          <h2 class="popup__title">Edit profile</h2>
+          <form class="popup__form" name="profileForm">
             <input class="field-input field-input_type_name" name="name" type="text" placeholder="Name">
             <input class="field-input field-input_type_profession" name="profession" type="text" placeholder="Profession">
-            <button class="form__save button button_hover_darker" type="submit">Save</button>
+            <button class="popup__save button button_hover_darker" type="submit">Save</button>
           </form>
         </div>
       </section>
 
-      <section class="form form_type_add-card">
-        <div class="form__container">
-          <button class="form__close button button_hover_dark" type="button"></button>
-          <h2 class="form__title">New Place</h2>
-          <form class="form__field" name="profileForm">
+      <section class="popup popup_type_image">
+        <div class="popup__container">
+          <button class="popup__close button button_hover_dark" type="button"></button>
+          <figure>
+            <img class="form-popup__image" src="" alt="">
+            <figcaption class="form-popup__caption"></figcaption>
+          </figure>
+        </div>
+      </section>
+
+
+      <section class="popup popup_type_add-card">
+        <div class="popup__container">
+          <button class="popup__close button button_hover_dark" type="button"></button>
+          <h2 class="popup__title">New Place</h2>
+          <form class="popup__form" name="profileForm">
             <input class="field-input field-input_type_card-title" name="card-title" type="text" placeholder="Title">
             <input class="field-input field-input_type_card-link" name="card-link" type="text" placeholder="Image URL">
-            <button class="form__save button button_hover_darker" type="submit">Save</button>
+            <button class="popup__save button button_hover_darker" type="submit">Save</button>
           </form>
         </div>
 
@@ -72,6 +83,7 @@
 
     <template class="card-template">
       <li class="card">
+        <button class="card__remove button button_hover_dark">remove</button>
         <img class="card__image" src="" alt="">
         <div class="card__caption">
           <h3 class="card__location ellipses"></h3>
