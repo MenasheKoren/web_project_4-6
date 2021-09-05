@@ -58,10 +58,15 @@ const addCardForm = addCardModal.querySelector('.popup__form');
 // submit
 const submitButton = document.querySelector('.popup__save');
 
+// image modal elements
+const openImageModel = document.querySelector('.popup__container')
+
 // functions
 function toggleModal(popup) {
   popup.classList.toggle('popup_opened')
 };
+
+
 /*
 function handleFormSubmit(evt, modal) {
   modal.addEventListener('submit', (evt) => {
@@ -114,6 +119,12 @@ addCardModalCloseButton.addEventListener('click', () => {
   toggleModal(addCardModal);
 });
 
+openImageModel.addEventListener('click', () => {
+  image.src = cardData.link;
+  title.textContent = cardData.name;
+
+});
+
 imageModalCloseButton.addEventListener('click', () => {
   toggleModal(imageModal);
 });
@@ -141,9 +152,7 @@ function generateCard(cardData) { // {name, link}
   image.addEventListener('click', () => {
     toggleModal(imageModal);
     image.src = cardData.link;
-    console.log(image.src);
     title.textContent = cardData.name;
-    console.log(title.textContent);
   });
 
 
