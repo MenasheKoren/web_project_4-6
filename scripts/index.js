@@ -106,12 +106,6 @@ addCardModalCloseButton.addEventListener('click', () => {
   toggleModal(addCardModal);
 });
 
-openImageModel.addEventListener('click', () => {
-  image.src = cardData.link;
-  title.textContent = cardData.name;
-
-});
-
 imageModalCloseButton.addEventListener('click', () => {
   toggleModal(imageModal);
 });
@@ -129,7 +123,7 @@ function generateCard(cardData) { // {name, link}
   image.alt = cardData.name;
 
   likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('card__like_filled')
+    likeButton.classList.toggle('button_filled')
   });
 
   removeButton.addEventListener('click', () => {

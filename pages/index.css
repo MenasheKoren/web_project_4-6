@@ -47,6 +47,7 @@
 @import url(../blocks/card/__caption/card__caption.css);
 @import url(../blocks/card/__location/card__location.css);
 @import url(../blocks/card/__like/card__like.css);
+@import url(../blocks/button/_filled/button_filled.css);
 
 @import url(../blocks/footer/footer.css);
 
