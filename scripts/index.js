@@ -123,7 +123,8 @@ function generateCard(cardData) { // {name, link}
   image.alt = cardData.name;
 
   likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('button_filled')
+    likeButton.classList.toggle('button_filled');
+    likeButton.classList.toggle('button_empty');
   });
 
   removeButton.addEventListener('click', () => {
