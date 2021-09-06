@@ -59,7 +59,9 @@ const addCardForm = addCardModal.querySelector('.popup__form');
 const submitButton = document.querySelector('.popup__save');
 
 // image modal elements
-const openImageModel = document.querySelector('.popup__container')
+const openImageModel = imageModal.querySelector('.popup__figure');
+const imagePopup = imageModal.querySelector('.popup__image');
+const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
@@ -67,8 +69,7 @@ function toggleModal(popup) {
 };
 
 
-/*
-function handleFormSubmit(evt, modal) {
+function handleFormSubmit(modal) {
   modal.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -82,21 +83,7 @@ function handleFormSubmit(evt, modal) {
     toggleModal(modal);
   });
 
-}
-*/
-editForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  document.querySelector(".edit-name").textContent = profileNameInput.value;
-  document.querySelector(".profile-info__profession").textContent = profileProfessionInput.value;
-  toggleModal(editModal);
-});
-
-addCardForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  generateCard({name: cardNameInput.value, link: cardLinkInput.value});
-  toggleModal(addCardModal);
-});
-
+};
 
 editProfileButton.addEventListener('click', () => {
   const profileName = profileNameValue.textContent;
@@ -117,12 +104,6 @@ addCardButton.addEventListener('click', () => {
 
 addCardModalCloseButton.addEventListener('click', () => {
   toggleModal(addCardModal);
-});
-
-openImageModel.addEventListener('click', () => {
-  image.src = cardData.link;
-  title.textContent = cardData.name;
-
 });
 
 imageModalCloseButton.addEventListener('click', () => {
@@ -151,8 +132,8 @@ function generateCard(cardData) { // {name, link}
 
   image.addEventListener('click', () => {
     toggleModal(imageModal);
-    image.src = cardData.link;
-    title.textContent = cardData.name;
+    imagePopup.src = cardData.link;
+    captionPopup.textContent = cardData.name;
   });
 
 
@@ -160,5 +141,7 @@ function generateCard(cardData) { // {name, link}
 };
 
 
+handleFormSubmit(editModal);
+handleFormSubmit(addCardModal);
+
 initialCards.forEach(generateCard);
-//submitButton.addEventListener('submit', handleFormSubmit);
