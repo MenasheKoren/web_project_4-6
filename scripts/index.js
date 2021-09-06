@@ -58,12 +58,16 @@ const addCardForm = addCardModal.querySelector('.popup__form');
 // submit
 const submitButton = document.querySelector('.popup__save');
 
+// image modal elements
+const openImageModel = document.querySelector('.popup__container')
+
 // functions
 function toggleModal(popup) {
   popup.classList.toggle('popup_opened')
 };
-/*
-function handleFormSubmit(evt, modal) {
+
+
+function handleFormSubmit(modal) {
   modal.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -78,7 +82,7 @@ function handleFormSubmit(evt, modal) {
   });
 
 }
-*/
+/*
 editForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   document.querySelector(".edit-name").textContent = profileNameInput.value;
@@ -91,7 +95,7 @@ addCardForm.addEventListener('submit', (evt) => {
   generateCard({name: cardNameInput.value, link: cardLinkInput.value});
   toggleModal(addCardModal);
 });
-
+*/
 
 editProfileButton.addEventListener('click', () => {
   const profileName = profileNameValue.textContent;
@@ -112,6 +116,12 @@ addCardButton.addEventListener('click', () => {
 
 addCardModalCloseButton.addEventListener('click', () => {
   toggleModal(addCardModal);
+});
+
+openImageModel.addEventListener('click', () => {
+  image.src = cardData.link;
+  title.textContent = cardData.name;
+
 });
 
 imageModalCloseButton.addEventListener('click', () => {
@@ -141,9 +151,7 @@ function generateCard(cardData) { // {name, link}
   image.addEventListener('click', () => {
     toggleModal(imageModal);
     image.src = cardData.link;
-    console.log(image.src);
     title.textContent = cardData.name;
-    console.log(title.textContent);
   });
 
 
@@ -151,5 +159,7 @@ function generateCard(cardData) { // {name, link}
 };
 
 
+handleFormSubmit(editModal);
+handleFormSubmit(addCardModal);
+
 initialCards.forEach(generateCard);
-//submitButton.addEventListener('submit', handleFormSubmit);
