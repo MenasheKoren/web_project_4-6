@@ -1,7 +1,10 @@
 .card {
   margin: 0;
-  max-width: 17.625em;
+  width: 17.625rem;
   background-color: rgba(255, 255, 255, 1);
-  border-radius: 10px;
+  border-radius: .625rem;
+  list-style-type: none;
+  position: relative;
 }
+
 

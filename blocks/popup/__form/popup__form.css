@@ -1,10 +1,10 @@
-.form__field {
+.popup__form {
   max-width: calc(100% - 2.75rem);
   margin: 0 auto 1.5625rem;
 }
 
 @media screen and (min-width: 515px) {
-    .form__field {
+    .popup__form {
     max-width: 22.375rem;
     margin: 0 auto 2.25rem;
   }

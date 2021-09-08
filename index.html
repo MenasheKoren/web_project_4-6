@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title>Web Project 4</title>
+    <title>Web Project 4-6</title>
   </head>
 
   <body class="page">
@@ -29,69 +29,11 @@
           </div>
         </section>
 
-        <section class="form">
-          <div class="form__container">
-            <button class="form__close button button_hover_dark" type="button"></button>
-            <h2 class="form__title">Edit profile</h2>
-            <form class="form__field" name="profileForm">
-              <input class="field-input field-input_type_name" id="name" name="name" type="text" placeholder="name"
-                                                                                                 value="Jacques Cousteau">
-              <input class="field-input field-input_type_profession" name="profession" id="profession" type="text"
-                                                                                                       placeholder="profession" value="Explorer">
-              <button class="form__save button button_hover_darker" type="submit">Save</button>
-            </form>
-          </div>
-        </section>
 
         <section class="cards">
-          <div class="card">
-            <img class="card__image" src="./images/yosemite-valley.jpg"
-                                     alt="A river, surrounded by forest trees, running toward a mountain in Yosemite Valley at sunrise">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Yosemite Valley</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/lake-louise.jpg"
-                                     alt="The reflection of two mountains on a still Lake Louise">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Lake Louise</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
+          <ul class="card-list">
 
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/bald-mountains.jpg" alt="The sun setting over the Bald Mountains">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Bald Mountains</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/latemar.jpg" alt="A starry night over Latemar mountains">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Latemar</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/vanoise-national-park.jpg"
-                                     alt="A beach view of a mountain reflecting in a still lake at Vanoise National Park">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Vanoise National Park</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/lago-di-braies.jpg"
-                                     alt="Half-a-dozen rowboats on a mountain lake, at Lago di Braies, docked by a wooden cabin">
-            <div class="card__caption">
-              <h3 class="card__location ellipses">Lago di Braies</h3>
-              <button class="card__like button button_hover_light" type="button"></button>
-            </div>
-          </div>
+          </ul>
         </section>
 
       </main>
@@ -99,7 +41,56 @@
       <footer class="footer">
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
+
+      <section class="popup popup_type_edit">
+        <div class="popup__container">
+          <button class="popup__close button button_hover_dark" type="button"></button>
+          <h2 class="popup__title">Edit profile</h2>
+          <form class="popup__form" name="profileForm">
+            <input class="field-input field-input_type_name" name="name" type="text" placeholder="Name">
+            <input class="field-input field-input_type_profession" name="profession" type="text" placeholder="Profession">
+            <button class="popup__save button button_hover_darker" type="submit">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="popup popup_type_image">
+        <div class="popup__container popup__container_type_image">
+          <button class="popup__close popup__close_type_image button button_hover_dark" type="button"></button>
+          <figure class="popup__figure">
+            <img class="popup__image" src="" alt="">
+            <figcaption class="popup__caption"></figcaption>
+          </figure>
+        </div>
+      </section>
+
+
+      <section class="popup popup_type_add-card">
+        <div class="popup__container">
+          <button class="popup__close button button_hover_dark" type="button"></button>
+          <h2 class="popup__title">New Place</h2>
+          <form class="popup__form" name="profileForm">
+            <input class="field-input field-input_type_card-title" name="card-title" type="text" placeholder="Title">
+            <input class="field-input field-input_type_card-link" name="card-link" type="text" placeholder="Image URL">
+            <button class="popup__save button button_hover_darker" type="submit">Save</button>
+          </form>
+        </div>
+
+      </section>
+
     </div>
+
+
+    <template class="card-template">
+      <li class="card">
+        <button class="card__remove button button_hover_dark"></button>
+        <img class="card__image" src="" alt="">
+        <div class="card__caption">
+          <h3 class="card__location ellipses"></h3>
+          <button class="card__like button button_empty button_hover_light" type="button"></button>
+        </div>
+      </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>

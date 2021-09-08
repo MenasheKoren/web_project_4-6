@@ -1,4 +1,4 @@
-.form__save {
+.popup__save {
   font-size: .875em;
   line-height: 1.2;
   text-align: center;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (min-width: 515px) {
-    .form__save {
+    .popup__save {
     font-size: 1em;
     line-height: 122%;
     padding: .875rem 7.75rem;
