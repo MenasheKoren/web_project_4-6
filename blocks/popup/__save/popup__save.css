@@ -10,6 +10,12 @@
   width: 100%;
 }
 
+.popup__save:disabled {
+  background: none;
+  opacity: .2;
+  color: rgba(0, 0, 0, .2)
+}
+
 @media screen and (min-width: 515px) {
     .popup__save {
     font-size: 1em;

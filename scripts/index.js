@@ -55,8 +55,6 @@ const profileProfessionValue = document.querySelector('.profile-info__profession
 const editForm = editModal.querySelector('.popup__form');
 const addCardForm = addCardModal.querySelector('.popup__form');
 
-// submit
-const submitButton = document.querySelector('.popup__save');
 
 // image modal elements
 const openImageModel = imageModal.querySelector('.popup__figure');

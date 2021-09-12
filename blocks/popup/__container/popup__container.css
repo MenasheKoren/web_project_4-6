@@ -4,6 +4,7 @@
   background: rgba(255, 255, 255, 1);
   width: 17.625rem;
   text-align: left;
+  color: initial;
   position: relative;
 }
 

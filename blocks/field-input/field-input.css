@@ -13,6 +13,9 @@
   margin: 0 auto;
 }
 
-field-input:focus {
-  background-color: rgba(220, 220, 220, 1);
+.field-input:invalid {
+  color: rgba(255, 0, 0, 1);
+  border-color: rgba(255, 0, 0, 1);
+  font-size: .75rem;
+  line-height: .9375rem;
 }
