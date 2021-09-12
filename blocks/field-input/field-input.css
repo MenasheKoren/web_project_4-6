@@ -2,20 +2,17 @@
   border-style: none;
   border-bottom: .0625rem solid rgba(0, 0, 0, .2);
   padding: 0 0 .5625rem 0;
-  margin-bottom: 1.875rem;
+  margin-top: 1.875rem;
   width: 100%;
   font-size: .875em;
   line-height: 1.2;
   transition: all .2s;
 }
 
-.field-input:nth-last-child(2) {
+.field-input:first-child {
   margin: 0 auto;
 }
 
 .field-input:invalid {
-  color: rgba(255, 0, 0, 1);
   border-color: rgba(255, 0, 0, 1);
-  font-size: .75rem;
-  line-height: .9375rem;
 }

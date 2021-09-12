@@ -65,32 +65,26 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
-  popup.classList.toggle('popup_opened')
+  popup.classList.toggle('popup_opened');
 };
 
-editModal.addEventListener('keydown', (evt) => {
+window.addEventListener('keydown', (evt) => {
+  const openedModal = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
-    toggleModal(editModal);
-  }
-})
+    toggleModal(openedModal);
+  };
+});
 
-addCardModal.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    toggleModal(addCardModal);
-  }
-})
 
 window.addEventListener('click', (evt) => {
   if (evt.target === imageModal) {
     toggleModal(imageModal);
-  }
-  if (evt.target === editModal) {
+  } else if (evt.target === editModal) {
     toggleModal(editModal);
-  }
-  if (evt.target === addCardModal) {
+  } else if (evt.target === addCardModal) {
     toggleModal(addCardModal);
-  }
-})
+  };
+});
 
 
 function handleFormSubmit(modal) {
@@ -162,7 +156,7 @@ function generateCard(cardData) { // {name, link}
     captionPopup.textContent = cardData.name;
   });
 
-  list.prepend(cardItem)
+  list.prepend(cardItem);
 };
 
 

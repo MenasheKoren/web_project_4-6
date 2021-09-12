@@ -6,6 +6,7 @@
 @import url(../blocks/button/_hover/button_hover_light.css);
 @import url(../blocks/button/_hover/button_hover_dark.css);
 @import url(../blocks/button/_hover/button_hover_darker.css);
+@import url(../blocks/error-message/error-message.css);
 
 @import url(../blocks/page/page.css);
 @import url(../blocks/content/content.css);
