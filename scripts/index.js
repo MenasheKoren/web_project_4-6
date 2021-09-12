@@ -32,6 +32,8 @@ const list = document.querySelector('.card-list');
 const editModal = document.querySelector('.popup_type_edit');
 const addCardModal = document.querySelector('.popup_type_add-card');
 const imageModal = document.querySelector('.popup_type_image');
+const openedModal = document.querySelector('.popup_opened');
+
 
 // close buttons
 const editModalCloseButton = editModal.querySelector('.popup__close');
@@ -66,6 +68,30 @@ function toggleModal(popup) {
   popup.classList.toggle('popup_opened')
 };
 
+editModal.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    toggleModal(editModal);
+  }
+})
+
+addCardModal.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    toggleModal(addCardModal);
+  }
+})
+
+window.addEventListener('click', (evt) => {
+  if (evt.target === imageModal) {
+    toggleModal(imageModal);
+  }
+  if (evt.target === editModal) {
+    toggleModal(editModal);
+  }
+  if (evt.target === addCardModal) {
+    toggleModal(addCardModal);
+  }
+})
+
 
 function handleFormSubmit(modal) {
   modal.addEventListener('submit', (evt) => {
@@ -94,6 +120,7 @@ editProfileButton.addEventListener('click', () => {
 editModalCloseButton.addEventListener('click', () => {
   toggleModal(editModal);
 });
+
 
 addCardButton.addEventListener('click', () => {
   addCardForm.reset();
@@ -134,7 +161,6 @@ function generateCard(cardData) { // {name, link}
     imagePopup.src = cardData.link;
     captionPopup.textContent = cardData.name;
   });
-
 
   list.prepend(cardItem)
 };
