@@ -65,35 +65,31 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
-  popup.classList.toggle('popup_opened')
+  popup.classList.toggle('popup_opened');
 };
 
-editModal.addEventListener('keydown', (evt) => {
+document.addEventListener('keydown', (evt) => {
+  const openedModal = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
-    toggleModal(editModal);
-  }
-})
+    toggleModal(openedModal);
+  };
+});
 
-addCardModal.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    toggleModal(addCardModal);
-  }
-})
+document.removeEventListener('keydown', toggleModal);
 
-window.addEventListener('click', (evt) => {
+document.addEventListener('click', (evt) => {
   if (evt.target === imageModal) {
     toggleModal(imageModal);
-  }
-  if (evt.target === editModal) {
+  } else if (evt.target === editModal) {
     toggleModal(editModal);
-  }
-  if (evt.target === addCardModal) {
+  } else if (evt.target === addCardModal) {
     toggleModal(addCardModal);
-  }
-})
+  };
+});
 
+document.removeEventListener('click', toggleModal);
 
-function handleFormSubmit(modal) {
+function addFormSubmitListener(modal) {
   modal.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -159,15 +155,14 @@ function generateCard(cardData) { // {name, link}
   image.addEventListener('click', () => {
     toggleModal(imageModal);
     imagePopup.src = cardData.link;
-    imagePopup.alt = cardData.name;
     captionPopup.textContent = cardData.name;
   });
 
-  list.prepend(cardItem)
+  list.prepend(cardItem);
 };
 
 
-handleFormSubmit(editModal);
-handleFormSubmit(addCardModal);
+addFormSubmitListener(editModal);
+addFormSubmitListener(addCardModal);
 
 initialCards.forEach(generateCard);

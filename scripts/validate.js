@@ -1,10 +1,11 @@
+/*
 function checkIfFormChanged(inputSelector, addCardForm) {
   let changed = false;
   addCardForm.querySelectorAll(inputSelector).forEach(
     evt => evt.onchange = () => changed = true);
   console.log(changed);
 };
-
+*/
 
 function showError(input) {
   const error = input.validationMessage;
