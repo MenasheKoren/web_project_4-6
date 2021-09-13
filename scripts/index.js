@@ -65,6 +65,8 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
+  const saveButton = document.querySelector('.popup__save');
+  saveButton ? saveButton.disabled = true : saveButton;
   popup.classList.toggle('popup_opened');
 };
 
@@ -99,7 +101,7 @@ function addFormSubmitListener(modal) {
     } else if (modal === addCardModal) {
       generateCard({name: cardNameInput.value, link: cardLinkInput.value});
     };
-
+    addCardForm.reset();
     toggleModal(modal);
   });
 
