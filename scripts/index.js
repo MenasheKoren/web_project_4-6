@@ -65,7 +65,7 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
-  const saveButton = document.querySelector('.popup__save');
+  const saveButton = popup.querySelector('.popup__save');
   saveButton ? saveButton.disabled = true : saveButton;
   popup.classList.toggle('popup_opened');
 };
