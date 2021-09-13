@@ -13,6 +13,6 @@
   margin: 0 auto;
 }
 
-.field-input:invalid {
+.field-input:invalid:visited {
   border-color: rgba(255, 0, 0, 1);
 }

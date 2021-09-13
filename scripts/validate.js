@@ -1,12 +1,3 @@
-/*
-function checkIfFormChanged(inputSelector, addCardForm) {
-  let changed = false;
-  addCardForm.querySelectorAll(inputSelector).forEach(
-    evt => evt.onchange = () => changed = true);
-  console.log(changed);
-};
-*/
-
 function showError(input) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
@@ -43,7 +34,6 @@ function enableValidation(settings) {
       input.addEventListener('input', () => {
         checkValidity(input);
         toggleButtonState(inputs, button);
-        checkIfFormChanged(inputSelector, addCardForm);
       });
     });
   });

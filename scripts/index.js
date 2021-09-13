@@ -70,7 +70,7 @@ function toggleModal(popup) {
 
 document.addEventListener('keydown', (evt) => {
   const openedModal = document.querySelector('.popup_opened');
-  if (evt.key === 'Escape') {
+  if (openedModal && evt.key === 'Escape') {
     toggleModal(openedModal);
   };
 });
