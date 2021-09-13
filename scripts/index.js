@@ -65,26 +65,32 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 
 // functions
 function toggleModal(popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.toggle('popup_opened')
 };
 
-window.addEventListener('keydown', (evt) => {
-  const openedModal = document.querySelector('.popup_opened');
+editModal.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
-    toggleModal(openedModal);
-  };
-});
+    toggleModal(editModal);
+  }
+})
 
+addCardModal.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    toggleModal(addCardModal);
+  }
+})
 
 window.addEventListener('click', (evt) => {
   if (evt.target === imageModal) {
     toggleModal(imageModal);
-  } else if (evt.target === editModal) {
+  }
+  if (evt.target === editModal) {
     toggleModal(editModal);
-  } else if (evt.target === addCardModal) {
+  }
+  if (evt.target === addCardModal) {
     toggleModal(addCardModal);
-  };
-});
+  }
+})
 
 
 function handleFormSubmit(modal) {
@@ -153,10 +159,11 @@ function generateCard(cardData) { // {name, link}
   image.addEventListener('click', () => {
     toggleModal(imageModal);
     imagePopup.src = cardData.link;
+    imagePopup.alt = cardData.name;
     captionPopup.textContent = cardData.name;
   });
 
-  list.prepend(cardItem);
+  list.prepend(cardItem)
 };
 
 

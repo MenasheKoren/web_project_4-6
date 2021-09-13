@@ -14,6 +14,7 @@
   background: none;
   opacity: .2;
   color: rgba(0, 0, 0, .2);
+  cursor: default;
 }
 
 @media screen and (min-width: 515px) {
