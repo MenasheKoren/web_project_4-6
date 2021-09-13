@@ -11,13 +11,14 @@ function hideError(input) {
 
 
 function checkValidity(input) {
-  !input.validity.valid ? showError(input) : hideError(input);
+  hideError(input);
+  input.validity.valid ? hideError(input) : showError(input);
 };
 
 function toggleButtonState(inputs, button) {
 
   const isFormValid = inputs.every(input => input.validity.valid);
-  !isFormValid ? button.disabled = true : button.disabled = false;
+  isFormValid ? button.disabled = false : button.disabled = true;
 }
 
 function enableValidation(settings) {
@@ -26,6 +27,7 @@ function enableValidation(settings) {
 
   forms.forEach(form => {
     form.addEventListener('submit', (evt) => evt.preventDefault());
+
 
     const inputs = [...form.querySelectorAll(inputSelector)];
     const button = form.querySelector(submitButtonSelector);

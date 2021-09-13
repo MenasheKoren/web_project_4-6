@@ -1,5 +1,3 @@
-import * from './validate.js';
-
 const initialCards = [
   {
     name:  "Yosemite Valley",
@@ -69,7 +67,6 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 function toggleModal(popup) {
   const saveButton = popup.querySelector('.popup__save');
   saveButton ? saveButton.disabled = true : saveButton;
-  hideError(input);
   popup.classList.toggle('popup_opened');
 };
 
