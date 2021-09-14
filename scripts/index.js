@@ -162,6 +162,7 @@ function generateCard(cardData) { // {name, link}
   image.addEventListener('click', () => {
     toggleModal(imageModal);
     imagePopup.src = cardData.link;
+    imagePopup.alt = cardData.name;
     captionPopup.textContent = cardData.name;
   });
 
