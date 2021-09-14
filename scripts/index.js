@@ -52,7 +52,7 @@ const cardNameInput = addCardModal.querySelector('.field-input_type_card-title')
 const cardLinkInput = addCardModal.querySelector('.field-input_type_card-link');
 const profileNameValue = document.querySelector('.edit-name');
 const profileProfessionValue = document.querySelector('.profile-info__profession');
-const initialFieldInput = document.querySelector('.field-input');
+const initialFieldInputs = document.querySelectorAll('.field-input');
 
 // forms
 const editForm = editModal.querySelector('.popup__form');
@@ -69,7 +69,8 @@ function toggleModal(popup) {
   const saveButton = popup.querySelector('.popup__save');
   saveButton ? saveButton.disabled = true : saveButton;
   popup.classList.toggle('popup_opened');
-  hideError(input);
+  const popupInitialInputs = popup.querySelectorAll('.field-input');
+  popupInitialInputs.forEach(hideError);
 };
 
 document.addEventListener('keydown', (evt) => {
