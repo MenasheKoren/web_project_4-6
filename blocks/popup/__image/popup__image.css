@@ -3,4 +3,5 @@
   object-fit: contain;
   object-position: center;
   margin: 0;
+  height: 100%;
 }

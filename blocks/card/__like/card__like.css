@@ -4,5 +4,6 @@
   background: url(../../../images/like.svg) no-repeat center;
   background-size: 1.3125rem 1.1875rem;
   border-style: none;
+  overflow: auto;
 }
 
