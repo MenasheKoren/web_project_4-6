@@ -11,12 +11,11 @@ function hideError(input) {
 
 
 function checkValidity(input) {
-  hideError(input);
   input.validity.valid ? hideError(input) : showError(input);
 };
 
-function toggleButtonState(inputs, button) {
 
+function toggleButtonState(inputs, button) {
   const isFormValid = inputs.every(input => input.validity.valid);
   isFormValid ? button.disabled = false : button.disabled = true;
 }

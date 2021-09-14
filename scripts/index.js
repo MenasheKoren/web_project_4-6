@@ -52,6 +52,7 @@ const cardNameInput = addCardModal.querySelector('.field-input_type_card-title')
 const cardLinkInput = addCardModal.querySelector('.field-input_type_card-link');
 const profileNameValue = document.querySelector('.edit-name');
 const profileProfessionValue = document.querySelector('.profile-info__profession');
+const initialFieldInput = document.querySelector('.field-input');
 
 // forms
 const editForm = editModal.querySelector('.popup__form');
@@ -68,6 +69,7 @@ function toggleModal(popup) {
   const saveButton = popup.querySelector('.popup__save');
   saveButton ? saveButton.disabled = true : saveButton;
   popup.classList.toggle('popup_opened');
+  hideError(input);
 };
 
 document.addEventListener('keydown', (evt) => {
@@ -107,7 +109,8 @@ function addFormSubmitListener(modal) {
 
 };
 
-editProfileButton.addEventListener('click', () => {
+editProfileButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
   const profileName = profileNameValue.textContent;
   profileNameInput.value = profileName;
   const profileProfession = profileProfessionValue.textContent;
@@ -120,7 +123,8 @@ editModalCloseButton.addEventListener('click', () => {
 });
 
 
-addCardButton.addEventListener('click', () => {
+addCardButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
   addCardForm.reset();
   toggleModal(addCardModal);
 });
