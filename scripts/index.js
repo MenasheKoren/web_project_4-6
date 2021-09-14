@@ -27,6 +27,7 @@ const initialCards = [
 
 const templateCardItem = document.querySelector('.card-template').content.querySelector('.card');
 const list = document.querySelector('.card-list');
+const cards = document.querySelectorAll('.card');
 
 // modals
 const editModal = document.querySelector('.popup_type_edit');
@@ -73,16 +74,16 @@ function toggleModal(popup) {
   popupInitialInputs.forEach(hideError);
 };
 
-document.addEventListener('keydown', (evt) => {
+const closeModalWithEscape = document.addEventListener('keydown', (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
     toggleModal(openedModal);
   };
 });
 
-document.removeEventListener('keydown', toggleModal);
+document.removeEventListener('keydown', closeModalWithEscape);
 
-document.addEventListener('click', (evt) => {
+const closeModalWithOverlay = document.addEventListener('click', (evt) => {
   if (evt.target === imageModal) {
     toggleModal(imageModal);
   } else if (evt.target === editModal) {
@@ -92,7 +93,7 @@ document.addEventListener('click', (evt) => {
   };
 });
 
-document.removeEventListener('click', toggleModal);
+document.removeEventListener('click', closeModalWithOverlay);
 
 function addFormSubmitListener(modal) {
   modal.addEventListener('submit', (evt) => {
