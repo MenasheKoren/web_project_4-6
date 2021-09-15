@@ -87,7 +87,7 @@ function toggleModal(popup) {
   };
 };
 
-const closeModalWithEscape = window.addEventListener('keydown', (evt) => {
+const closeModalWithEscape = document.addEventListener('keydown', (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
     toggleModal(openedModal);
@@ -95,7 +95,7 @@ const closeModalWithEscape = window.addEventListener('keydown', (evt) => {
 });
 
 
-const closeModalWithOverlay = window.addEventListener('click', (evt) => {
+const closeModalWithOverlay = document.addEventListener('click', (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (evt.target === imageModal) {
     toggleModal(imageModal);
@@ -151,7 +151,12 @@ imageModalCloseButton.addEventListener('click', () => {
   toggleModal(imageModal);
 });
 
-function generateCard(cardData) { // {name, link}
+function generateCard(cardData) {
+  const cardItem = createCard(cardData);
+  list.prepend(cardItem);
+}
+
+function createCard(cardData) {
   const cardItem = templateCardItem.cloneNode(true);
 
   const title = cardItem.querySelector('.card__location');
@@ -179,7 +184,7 @@ function generateCard(cardData) { // {name, link}
     captionPopup.textContent = cardData.name;
   });
 
-  list.prepend(cardItem);
+  return cardItem;
 };
 
 
