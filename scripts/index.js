@@ -78,33 +78,29 @@ function toggleModal(popup) {
   const popupInitialInputs = popup.querySelectorAll('.field-input');
   popupInitialInputs.forEach(hideError);
 
-  if (popup) {
+  if (!popup.classList.contains('popup_opened')) {
     popup.removeEventListener('click', closeModalWithOverlay);
-    popup.removeEventListener('keydown', closeModalWithEscape);
+    document.removeEventListener('keydown', closeModalWithEscape);
   } else {
-    popup.addEventListener('keydown', closeModalWithEscape);
+    document.addEventListener('keydown', closeModalWithEscape);
     popup.addEventListener('click', closeModalWithOverlay);
   };
 };
 
-const closeModalWithEscape = document.addEventListener('keydown', (evt) => {
+const closeModalWithEscape = (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
     toggleModal(openedModal);
   };
-});
+};
 
 
-const closeModalWithOverlay = document.addEventListener('click', (evt) => {
+const closeModalWithOverlay = (evt) =>  {
   const openedModal = document.querySelector('.popup_opened');
-  if (evt.target === imageModal) {
-    toggleModal(imageModal);
-  } else if (evt.target === editModal) {
-    toggleModal(editModal);
-  } else if (evt.target === addCardModal) {
-    toggleModal(addCardModal);
+  if (openedModal) {
+    toggleModal(openedModal);
   };
-});
+};
 
 
 function addFormSubmitListener(modal) {
