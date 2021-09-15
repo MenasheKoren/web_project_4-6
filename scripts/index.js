@@ -68,22 +68,35 @@ const captionPopup = imageModal.querySelector('.popup__caption');
 // functions
 function toggleModal(popup) {
   const saveButton = popup.querySelector('.popup__save');
-  saveButton ? saveButton.disabled = true : saveButton;
+
+  if (saveButton) {
+    saveButton.disabled = true;
+  };
+
+
   popup.classList.toggle('popup_opened');
   const popupInitialInputs = popup.querySelectorAll('.field-input');
   popupInitialInputs.forEach(hideError);
+
+  if (popup) {
+    popup.removeEventListener('click', closeModalWithOverlay);
+    popup.removeEventListener('keydown', closeModalWithEscape);
+  } else {
+    popup.addEventListener('keydown', closeModalWithEscape);
+    popup.addEventListener('click', closeModalWithOverlay);
+  };
 };
 
-const closeModalWithEscape = document.addEventListener('keydown', (evt) => {
+const closeModalWithEscape = window.addEventListener('keydown', (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
     toggleModal(openedModal);
   };
 });
 
-document.removeEventListener('keydown', closeModalWithEscape);
 
-const closeModalWithOverlay = document.addEventListener('click', (evt) => {
+const closeModalWithOverlay = window.addEventListener('click', (evt) => {
+  const openedModal = document.querySelector('.popup_opened');
   if (evt.target === imageModal) {
     toggleModal(imageModal);
   } else if (evt.target === editModal) {
@@ -93,7 +106,6 @@ const closeModalWithOverlay = document.addEventListener('click', (evt) => {
   };
 });
 
-document.removeEventListener('click', closeModalWithOverlay);
 
 function addFormSubmitListener(modal) {
   modal.addEventListener('submit', (evt) => {
