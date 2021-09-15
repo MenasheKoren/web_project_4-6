@@ -97,7 +97,7 @@ const closeModalWithEscape = (evt) => {
 
 const closeModalWithOverlay = (evt) =>  {
   const openedModal = document.querySelector('.popup_opened');
-  if (openedModal) {
+  if (openedModal === evt.target) {
     toggleModal(openedModal);
   };
 };
