@@ -1,4 +1,22 @@
-import {Card} from './Card.js';
+//import {Card} from './Card.js';
+import FormValidator from './FormValidator.js';
+
+const settings = {
+  inputSelector: ".field-input",
+  submitButtonSelector: ".popup__save"
+};
+
+const editForm = document.querySelector('.popup__form_type_edit');
+const addCardForm = document.querySelector('.popup__form_type_add-card');
+
+const editFormValidator = new FormValidator(setting, editForm);
+const addCardFormValidator = new FormValidator(setting, addCardForm);
+
+editFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
+editFormValidator.resetValidation();
+addCardFormValidator.resetValidation();
 
 const initialCards = [
   {
@@ -123,6 +141,7 @@ function addFormSubmitListener(modal) {
 
 editProfileButton.addEventListener('click', (evt) => {
   evt.preventDefault();
+  editFormValidator.resetValidation();
   const profileName = profileNameValue.textContent;
   profileNameInput.value = profileName;
   const profileProfession = profileProfessionValue.textContent;
@@ -137,6 +156,7 @@ editModalCloseButton.addEventListener('click', () => {
 
 addCardButton.addEventListener('click', (evt) => {
   evt.preventDefault();
+  addCardFormValidator.resetValidation();
   addCardForm.reset();
   toggleModal(addCardModal);
 });

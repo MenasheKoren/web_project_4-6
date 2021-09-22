@@ -17,41 +17,48 @@ class FormValidator {
 
 
   _checkValidity(input) {
-    input.validity.valid ? this.hideError(input) : this.showError(input);
+    input.validity.valid ? this._hideError(input) : this._showError(input);
   };
 
 
   _setEventListeners = () => {
-    const { inputSelector, submitButtonSelector } = this.settings
-    const inputs = [...this.formElement.querySelectorAll(inputSelector)];
+    const { inputSelector } = this.settings
+    this.inputs = [...this.formElement.querySelectorAll(inputSelector)];
 
-    inputs.forEach(input => {
+    this.inputs.forEach(input => {
       input.addEventListener('input', () => {
-        this.checkValidity(input);
-        this.toggleButtonState(inputs);
+        this._checkValidity(input);
+        this._toggleButtonState(inputs);
       });
     });
 
   };
 
-  _toggleButtonState(inputs) {
+  _toggleButtonState() {
 
+    const { submitButtonSelector } = this.settings
     const button = this.formElement.querySelector(submitButtonSelector);
-    const isFormValid = inputs.every(input => input.validity.valid);
+    const isFormValid = this.inputs.every(input => input.validity.valid);
     isFormValid ? button.disabled = false : button.disabled = true;
   }
 
+  resetValidation() {
+    this.inputs.forEach(input => {
+      this._hideError(input)
+    });
+  };
 
   enableValidation() {
 
     this.formElement.addEventListener('submit', (evt) => evt.preventDefault());
 
-    this.setEventListeners(formElement, rest)
-    // console.log(this.settings)
-    // this.formElement
+    this._setEventListeners(formElement, rest)
   };
 };
 
+export default FormValidator
+
+/*
 const settings = {
   inputSelector: ".field-input",
   submitButtonSelector: ".popup__save"
@@ -62,4 +69,4 @@ const addCardForm = document.querySelector('.popup__form');
 
 const editFormValidator = new FormValidator(setting, editForm);
 const addCardFormValidator = new FormValidator(setting, addCardForm);
-
+*/
