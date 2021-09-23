@@ -6,8 +6,8 @@ const settings = {
   submitButtonSelector: ".popup__save"
 };
 
-const editForm = document.querySelector('.popup__form_type_edit');
-const addCardForm = document.querySelector('.popup__form_type_add-card');
+const editForm = document.querySelector('.popup_type_edit');
+const addCardForm = document.querySelector('.popup_type_add-card');
 
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -52,7 +52,7 @@ const cards = document.querySelectorAll('.card');
 // modals
 const editModal = document.querySelector('.popup_type_edit');
 const addCardModal = document.querySelector('.popup_type_add-card');
-// const imageModal = document.querySelector('.popup_type_image');
+const imageModal = document.querySelector('.popup_type_image');
 const openedModal = document.querySelector('.popup_opened');
 
 
@@ -76,8 +76,8 @@ const profileProfessionValue = document.querySelector('.profile-info__profession
 const initialFieldInputs = document.querySelectorAll('.field-input');
 
 // forms
-// const editForm = editModal.querySelector('.popup__form');
-// const addCardForm = addCardModal.querySelector('.popup__form');
+const editFormModal = editModal.querySelector('.popup__form');
+const addCardFormModal = addCardModal.querySelector('.popup__form');
 
 
 // image modal elements
@@ -106,7 +106,7 @@ function toggleModal(popup) {
     popup.addEventListener('click', closeModalWithOverlay);
   };
 };
-
+/*
 const closeModalWithEscape = (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
@@ -121,7 +121,7 @@ const closeModalWithOverlay = (evt) =>  {
     toggleModal(openedModal);
   };
 };
-
+*/
 
 function addFormSubmitListener(modal) {
   modal.addEventListener('submit', (evt) => {
@@ -133,7 +133,7 @@ function addFormSubmitListener(modal) {
     } else if (modal === addCardModal) {
       generateCard({name: cardNameInput.value, link: cardLinkInput.value});
     };
-    addCardForm.reset();
+    addCardFormModal.reset();
     toggleModal(modal);
   });
 
@@ -157,7 +157,7 @@ editModalCloseButton.addEventListener('click', () => {
 addCardButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   addCardFormValidator.resetValidation();
-  addCardForm.reset();
+  addCardFormModal.reset();
   toggleModal(addCardModal);
 });
 

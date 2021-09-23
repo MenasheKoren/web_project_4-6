@@ -1,10 +1,12 @@
 import { toggleModal, imageModal, imagePopup, captionPopup } from './utils.js';
 
 export class Card {
-  constructor({ name, link }, templateCardSelector) {
+  constructor({ name, link }, templateCardSelector, cardTitle) {
     this._name = name;
-    this._title = title;
+    this._link = link;
     this._templateCardSelector = templateCardSelector;
+
+    //this._cardTitle = document.querySelector('.card__location');
 
     this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card')
 
@@ -32,18 +34,21 @@ export class Card {
     this._removeButton = this._cardElement.querySelector('.card__remove');
     this._likeButton = this._cardElement.querySelector('.card__like');
 
-    likeButton.addEventListener('click', this._handleLikeButton);
-    removeButton.addEventListener('click', this._handleRemoveCard);
-    cardImage.addEventListener('click', this._handlePreviewPicture);
+    this._likeButton.addEventListener('click', this._handleLikeButton);
+    this._removeButton.addEventListener('click', this._handleRemoveCard);
+    this._cardImage.addEventListener('click', this._handlePreviewPicture);
 
   }
 
   getCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);
+    this._cardTitle = this._cardElement.querySelector('.card__location');
 
-    title.textContent = this._name;
-    image.src = this._link;
-    image.alt = this._name;
+     this._cardImage = this._cardElement.querySelector('.card__image');
+
+    this._cardTitle.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
 
     this._addEventListeners();
 

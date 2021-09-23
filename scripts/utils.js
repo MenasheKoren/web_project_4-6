@@ -1,6 +1,7 @@
 export const imagePopup = document.querySelector('.popup__image');
 export const captionPopup = document.querySelector('.popup__caption');
 export const imageModal = document.querySelector('.popup_type_image');
+// export const title = document.querySelector('.card__location');
 
 // const imageModal = document.querySelector('.popup_type_image');
 const closeModalWithEscape = (evt) => {

@@ -28,7 +28,7 @@ class FormValidator {
     this.inputs.forEach(input => {
       input.addEventListener('input', () => {
         this._checkValidity(input);
-        this._toggleButtonState(inputs);
+        this._toggleButtonState(this.inputs);
       });
     });
 
@@ -52,21 +52,10 @@ class FormValidator {
 
     this._formElement.addEventListener('submit', (evt) => evt.preventDefault());
 
-    this._setEventListeners(formElement, rest)
+    this._setEventListeners(/*this._formElement, rest*/)
   };
 };
 
-export default FormValidator
+export default FormValidator;
 
-/*
-const settings = {
-  inputSelector: ".field-input",
-  submitButtonSelector: ".popup__save"
-};
 
-const editForm = document.querySelector('.popup__form');
-const addCardForm = document.querySelector('.popup__form');
-
-const editFormValidator = new FormValidator(setting, editForm);
-const addCardFormValidator = new FormValidator(setting, addCardForm);
-*/
