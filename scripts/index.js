@@ -95,8 +95,8 @@ function toggleModal(popup) {
 
 
   popup.classList.toggle('popup_opened');
-  const popupInitialInputs = popup.querySelectorAll('.field-input');
-  popupInitialInputs.forEach(hideError);
+  //const popupInitialInputs = popup.querySelectorAll('.field-input');
+  //popupInitialInputs.forEach(hideError);
 
   if (!popup.classList.contains('popup_opened')) {
     popup.removeEventListener('click', closeModalWithOverlay);
@@ -106,7 +106,7 @@ function toggleModal(popup) {
     popup.addEventListener('click', closeModalWithOverlay);
   };
 };
-/*
+
 const closeModalWithEscape = (evt) => {
   const openedModal = document.querySelector('.popup_opened');
   if (openedModal && evt.key === 'Escape') {
@@ -121,7 +121,6 @@ const closeModalWithOverlay = (evt) =>  {
     toggleModal(openedModal);
   };
 };
-*/
 
 function addFormSubmitListener(modal) {
   modal.addEventListener('submit', (evt) => {
