@@ -9,8 +9,8 @@ const settings = {
 const editForm = document.querySelector('.popup__form_type_edit');
 const addCardForm = document.querySelector('.popup__form_type_add-card');
 
-const editFormValidator = new FormValidator(setting, editForm);
-const addCardFormValidator = new FormValidator(setting, addCardForm);
+const editFormValidator = new FormValidator(settings, editForm);
+const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
@@ -52,7 +52,7 @@ const cards = document.querySelectorAll('.card');
 // modals
 const editModal = document.querySelector('.popup_type_edit');
 const addCardModal = document.querySelector('.popup_type_add-card');
-const imageModal = document.querySelector('.popup_type_image');
+// const imageModal = document.querySelector('.popup_type_image');
 const openedModal = document.querySelector('.popup_opened');
 
 
@@ -76,8 +76,8 @@ const profileProfessionValue = document.querySelector('.profile-info__profession
 const initialFieldInputs = document.querySelectorAll('.field-input');
 
 // forms
-const editForm = editModal.querySelector('.popup__form');
-const addCardForm = addCardModal.querySelector('.popup__form');
+// const editForm = editModal.querySelector('.popup__form');
+// const addCardForm = addCardModal.querySelector('.popup__form');
 
 
 // image modal elements
@@ -169,18 +169,21 @@ imageModalCloseButton.addEventListener('click', () => {
   toggleModal(imageModal);
 });
 
-function generateCard(cardData) {
-  const cardItem = createCard(cardData);
-  list.prepend(cardItem);
+const cardTemplateSelector = '.card-template';
+
+function generateCard(data, ) {
+  const cardElement = new Card(data, cardTemplateSelector);
+  list.prepend(cardElement.getCardElement());
 }
 
+/*
 function createCard(cardData) {
-  const cardItem = templateCardItem.cloneNode(true);
+  const cardElement = templateCardItem.cloneNode(true);
 
-  const title = cardItem.querySelector('.card__location');
-  const image = cardItem.querySelector('.card__image');
-  const removeButton = cardItem.querySelector('.card__remove');
-  const likeButton = cardItem.querySelector('.card__like');
+  const title = cardElement.querySelector('.card__location');
+  const image = cardElement.querySelector('.card__image');
+  const removeButton = cardElement.querySelector('.card__remove');
+  const likeButton = cardElement.querySelector('.card__like');
 
   title.textContent = cardData.name;
   image.src = cardData.link;
@@ -192,7 +195,7 @@ function createCard(cardData) {
   });
 
   removeButton.addEventListener('click', () => {
-    cardItem.remove();
+    cardElement.remove();
   });
 
   image.addEventListener('click', () => {
@@ -202,9 +205,9 @@ function createCard(cardData) {
     captionPopup.textContent = cardData.name;
   });
 
-  return cardItem;
+  return cardElement;
 };
-
+*/
 
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
