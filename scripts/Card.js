@@ -1,15 +1,12 @@
 import { toggleModal, imageModal, imagePopup, captionPopup } from './utils.js';
 
 export class Card {
-  constructor({ name, link }, templateCardSelector, cardTitle) {
+  constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
 
-    //this._cardTitle = document.querySelector('.card__location');
-
     this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card')
-
   }
 
   _handlePreviewPicture = () => {
@@ -26,7 +23,7 @@ export class Card {
   };
 
 
-  _handleRemoveCard = () => this._cardElement.remove();
+  _handleRemoveCard = () => this._cardElement.remove(null);
 
 
   _addEventListeners() {
@@ -40,7 +37,7 @@ export class Card {
 
   }
 
-  getCardElement = () => {
+  createCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);
     this._cardTitle = this._cardElement.querySelector('.card__location');
 

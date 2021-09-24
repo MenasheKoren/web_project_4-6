@@ -1,4 +1,4 @@
-class FormValidator {
+export class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
@@ -17,7 +17,11 @@ class FormValidator {
 
 
   _checkValidity(input) {
-    input.validity.valid ? this._hideError(input) : this._showError(input);
+    if (input.validity.valid) {
+      this._hideError(input)
+    } else {
+      this._showError(input)
+    };
   };
 
 
@@ -39,7 +43,7 @@ class FormValidator {
     const { submitButtonSelector } = this._settings
     const button = this._formElement.querySelector(submitButtonSelector);
     const isFormValid = this.inputs.every(input => input.validity.valid);
-    isFormValid ? button.disabled = false : button.disabled = true;
+    button.disabled = !isFormValid;
   }
 
   resetValidation() {
@@ -52,10 +56,9 @@ class FormValidator {
 
     this._formElement.addEventListener('submit', (evt) => evt.preventDefault());
 
-    this._setEventListeners(/*this._formElement, rest*/)
+    this._setEventListeners()
   };
 };
 
-export default FormValidator;
 
 
