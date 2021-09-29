@@ -3,6 +3,11 @@ import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 import {toggleModal} from './utils.js';
 
+import logoSrc from "../images/logo.svg";
+
+const headerLogo = document.getElementById('header-logo');
+headerLogo.src = logoSrc;
+
 const settings = {
   inputSelector: ".field-input",
   submitButtonSelector: ".popup__save"
