@@ -55,3 +55,7 @@ tags
 # End of https://www.toptal.com/developers/gitignore/api/linux,vim,visualstudiocode
 
 .env/*
+
+
+node_modules
+dist
