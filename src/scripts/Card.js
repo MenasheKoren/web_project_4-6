@@ -1,10 +1,11 @@
-import { toggleModal, imageModal, imagePopup, captionPopup } from './utils.js';
-
-export class Card {
-  constructor({ name, link }, templateCardSelector) {
+import { imageModal, imagePopup, captionPopup } from './constants.js';
+import { toggleModal } from './utils.js';
+export default class Card {
+  constructor({ name, link }, templateCardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
+    this._handleCardClick = handleCardClick
 
     this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card')
   }
@@ -33,7 +34,7 @@ export class Card {
 
     this._likeButton.addEventListener('click', this._handleLikeButton);
     this._removeButton.addEventListener('click', this._handleRemoveCard);
-    this._cardImage.addEventListener('click', this._handlePreviewPicture);
+    this._cardImage.addEventListener('click', this._handleCardClick());
 
   }
 
