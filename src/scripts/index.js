@@ -7,17 +7,22 @@ import {
   addCardModalCloseButton,
   imageModalCloseButton,
   editFormModal,
-  addCardFormModal
+  addCardFormModal,
+  editModal,
+  addCardModal,
+  imageModal,
+  profileNameInput,
+  profileProfessionInput,
+  cardNameInput,
+  cardLinkInput,
+  profileNameValue,
+  profileProfessionValue,
+  list,
 
-  // settings,
-  // editForm,
-  // addCardForm,
-  // editFormValidator,
-  // addCardFormValidator,
-  // cardTemplateSelector,
-  // imageModalNew,
-  // addCardModalNew,
-  // editModalNew,
+
+
+
+
 
 } from './constants.js';
 import Card from './Card.js';
@@ -188,4 +193,3 @@ addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
 initialCards.forEach(generateCard);
-console.log('Hello world');
