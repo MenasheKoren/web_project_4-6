@@ -27,6 +27,7 @@ import {
   initialFieldInputs,
   templateCardItem,
   cards,
+  listTemplateSelector,
 
 
 } from '../scripts/utils/constants.js';
@@ -138,13 +139,21 @@ function generateCard(data) {
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
-initialCards.forEach(generateCard);
+// initialCards.forEach(generateCard);
 
-const cardList = new Section({
-  items: initialCards,
-  renderer: (data, items) => {
-    cardList.addItem(generateCard(data));
-  }
-}, cardTemplateSelector
-);
+// const cardList = new Section({
+//   items: initialCards,
+//   renderer: (data, _items) => {
+//     cardList.addItem(generateCard(data));
+//   }
+// }, listTemplateSelector
+// );
 
+const cardList = new Section({
+    data: initialCards,
+    renderer: (data) => {
+      cardList.addItem(generateCard(data));
+    }
+  }, listTemplateSelector // Alexey says use "list"
+  );
+  cardList.renderer()
