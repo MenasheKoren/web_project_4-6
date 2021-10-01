@@ -1,5 +1,6 @@
-import { imageModal, imagePopup, captionPopup } from './constants.js';
-import { toggleModal } from './utils.js';
+import { imageModal, imagePopup, captionPopup } from '../utils/constants.js';
+import { toggleModal } from '../utils/utils.js';
+
 export default class Card {
   constructor({ name, link }, templateCardSelector, handleCardClick) {
     this._name = name;

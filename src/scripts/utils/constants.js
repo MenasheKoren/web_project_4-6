@@ -3,8 +3,8 @@ export const settings = {
   submitButtonSelector: ".popup__save"
 };
 
-const editForm = document.querySelector('.popup_type_edit');
-const addCardForm = document.querySelector('.popup_type_add-card');
+export const editForm = document.querySelector('.popup_type_edit');
+export const addCardForm = document.querySelector('.popup_type_add-card');
 
 // export const editFormValidator = new FormValidator(settings, editForm);
 // export const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -77,17 +77,17 @@ export const imagePopup = imageModal.querySelector('.popup__image');
 export const captionPopup = imageModal.querySelector('.popup__caption')
 
 
-// export const cardTemplateSelector = '.card-template';
+export const cardTemplateSelector = '.card-template';
 
-// export const imageModalNew = new PopupWithImage('.popup_type_image')
-// export const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
-//   console.log('data :>> ', data);
+export const imageModalNew = new PopupWithImage('.popup_type_image')
+export const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
+  console.log('data :>> ', data);
 
-//   generateCard(data)
-// })
-// export const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
-//   console.log('data :>> ', data);
+  generateCard(data)
+})
+export const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
+  console.log('data :>> ', data);
 
-//   generateCard(data)
+  generateCard(data)
 
-// })
+})
