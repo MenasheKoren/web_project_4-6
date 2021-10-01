@@ -25,6 +25,8 @@ import {
   // imageModalNew,
   // addCardModalNew,
   initialFieldInputs,
+  templateCardItem,
+  cards,
 
 
 } from '../scripts/utils/constants.js';
@@ -40,7 +42,7 @@ import {
   editFormValidator,
   addCardFormValidator,
 } from '../scripts/utils/utils.js';
-
+import Section from '../scripts/components/Section.js';
 
 
 // const settings = {
@@ -130,10 +132,19 @@ function generateCard(data) {
   const cardElement = new Card(data, cardTemplateSelector, () => {
     imageModalNew.open();
   });
-  list.prepend(cardElement.createCardElement());
+  // list.prepend(cardElement.createCardElement());
 };
 
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
 initialCards.forEach(generateCard);
+
+const cardList = new Section({
+  items: initialCards,
+  renderer: (data, items) => {
+    cardList.addItem(generateCard(data));
+  }
+}, cardTemplateSelector
+);
+
