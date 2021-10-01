@@ -6,9 +6,9 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
-    this._handleCardClick = handleCardClick
+    this._handleCardClick = handleCardClick;
 
-    this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card')
+    this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card');
   }
 
   _handlePreviewPicture = () => {
@@ -43,7 +43,7 @@ export default class Card {
     this._cardElement = this._cardTemplate.cloneNode(true);
     this._cardTitle = this._cardElement.querySelector('.card__location');
 
-     this._cardImage = this._cardElement.querySelector('.card__image');
+    this._cardImage = this._cardElement.querySelector('.card__image');
 
     this._cardTitle.textContent = this._name;
     this._cardImage.src = this._link;
@@ -52,7 +52,7 @@ export default class Card {
     this._addEventListeners();
 
     return this._cardElement;
-  }
+  };
 };
 
 

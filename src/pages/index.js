@@ -1,4 +1,4 @@
-import "../pages/index.css"
+import "../pages/index.css";
 import {
   initialCards,
   editProfileButton,
@@ -22,20 +22,23 @@ import {
   addCardForm,
   settings,
   cardTemplateSelector,
-  imageModalNew,
-  addCardModalNew,
+  // imageModalNew,
+  // addCardModalNew,
   initialFieldInputs,
+
 
 } from '../scripts/utils/constants.js';
 import Card from '../scripts/components/Card.js';
-import  FormValidator  from '../scripts/components/FormValidator.js';
+import FormValidator from '../scripts/components/FormValidator.js';
 import { PopupWithForm } from "../scripts/components/PopupWithForm.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import {
   toggleModal,
   closeModalWithEscape,
   closeModalWithOverlay,
-  addFormSubmitListener
+  addFormSubmitListener,
+  editFormValidator,
+  addCardFormValidator,
 } from '../scripts/utils/utils.js';
 
 
@@ -48,8 +51,8 @@ import {
 // const editForm = document.querySelector('.popup_type_edit');
 // const addCardForm = document.querySelector('.popup_type_add-card');
 
-const editFormValidator = new FormValidator(settings, editForm);
-const addCardFormValidator = new FormValidator(settings, addCardForm);
+// const editFormValidator = new FormValidator(settings, editForm);
+// const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
@@ -108,23 +111,24 @@ addCardFormValidator.resetValidation();
 
 // const cardTemplateSelector = '.card-template';
 
-// const imageModalNew = new PopupWithImage('.popup_type_image')
-// const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
+const imageModalNew = new PopupWithImage('.popup_type_image');
+const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
 
-//   generateCard(data);
-// })
-// const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
+  generateCard(data);
+});
+const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
 
-//   generateCard(data)
+  generateCard(data)
 
-// })
+});
+
 imageModalNew.setEventListeners();
 addCardModalNew.setEventListeners();
 editModalNew.setEventListeners();
 
 function generateCard(data) {
   const cardElement = new Card(data, cardTemplateSelector, () => {
-    imageModalNew.open()
+    imageModalNew.open();
   });
   list.prepend(cardElement.createCardElement());
 };

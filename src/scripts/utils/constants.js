@@ -11,7 +11,7 @@ export const addCardForm = document.querySelector('.popup_type_add-card');
 
 export const initialCards = [
   {
-    name:  "Yosemite Valley",
+    name: "Yosemite Valley",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
   },
   {
@@ -74,20 +74,20 @@ export const addCardFormModal = addCardModal.querySelector('.popup__form');
 // image modal elements
 export const openImageModel = imageModal.querySelector('.popup__figure');
 export const imagePopup = imageModal.querySelector('.popup__image');
-export const captionPopup = imageModal.querySelector('.popup__caption')
+export const captionPopup = imageModal.querySelector('.popup__caption');
 
 
 export const cardTemplateSelector = '.card-template';
 
-export const imageModalNew = new PopupWithImage('.popup_type_image')
-export const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
-  console.log('data :>> ', data);
+// export const imageModalNew = new PopupWithImage('.popup_type_image');
+// export const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
+//   console.log('data :>> ', data);
 
-  generateCard(data)
-})
-export const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
-  console.log('data :>> ', data);
+//   generateCard(data);
+// });
+// export const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
+//   console.log('data :>> ', data);
 
-  generateCard(data)
+//   generateCard(data);
 
-})
+// });

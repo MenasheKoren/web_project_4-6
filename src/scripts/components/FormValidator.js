@@ -2,7 +2,7 @@ export default class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
-  }
+  };
 
   _showError(input) {
     const error = input.validationMessage;
@@ -18,9 +18,9 @@ export default class FormValidator {
 
   _checkValidity(input) {
     if (input.validity.valid) {
-      this._hideError(input)
+      this._hideError(input);
     } else {
-      this._showError(input)
+      this._showError(input);
     };
   };
 
@@ -44,7 +44,7 @@ export default class FormValidator {
     const button = this._formElement.querySelector(submitButtonSelector);
     const isFormValid = this.inputs.every(input => input.validity.valid);
     button.disabled = !isFormValid;
-  }
+  };
 
   resetValidation() {
     this.inputs.forEach(input => {
@@ -54,9 +54,9 @@ export default class FormValidator {
 
   enableValidation() {
 
-    this._formElement.addEventListener('submit', (evt) => evt.preventDefault());
+    this._formElement.addEventListener('submit', (evt) => evt.preventDefault()); /* ? */
 
-    this._setEventListeners()
+    this._setEventListeners();
   };
 };
 

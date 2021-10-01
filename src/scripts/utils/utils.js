@@ -1,4 +1,11 @@
-import { openedModal  } from './constants.js';
+import {
+  openedModal,
+  editForm,
+  addCardForm,
+  settings,
+
+} from './constants.js';
+import FormValidator from '../components/FormValidator.js';
 
 // export const imagePopup = document.querySelector('.popup__image');
 // export const captionPopup = document.querySelector('.popup__caption');
@@ -55,3 +62,7 @@ export function addFormSubmitListener(modal) {
   });
 
 };
+
+
+export const editFormValidator = new FormValidator(settings, editForm);
+export const addCardFormValidator = new FormValidator(settings, addCardForm)
