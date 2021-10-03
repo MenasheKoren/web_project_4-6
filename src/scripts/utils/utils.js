@@ -1,5 +1,4 @@
 import {
-  openedModal,
   editForm,
   addCardForm,
   settings,

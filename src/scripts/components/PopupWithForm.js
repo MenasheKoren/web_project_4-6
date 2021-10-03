@@ -1,8 +1,4 @@
 import Popup from "./Popup.js";
-import {
-  profileNameValue,
-  profileProfessionValue
-} from '../utils/constants.js';
 
 export class PopupWithForm extends Popup {
   constructor(popupSelector, submitHandler) {
@@ -33,10 +29,4 @@ export class PopupWithForm extends Popup {
   };
 };
 
-// const profileName = ''
-// const profileProfession = ''
 
-const editModal = new PopupWithForm('.popup_type_edit', (data) => {
-  profileNameValue.textContent = data.name;
-  profileProfessionValue.textContent = data.description;
-});

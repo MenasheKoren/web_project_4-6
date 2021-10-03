@@ -7,6 +7,7 @@ export default class PopupWithImage extends Popup {
     const captionElement = this._popupElement.querySelector('.popup__caption');
 
     imageElement.src = link;
+    imageElement.alt = name;
     captionElement.textContent = name;
 
     super.open();

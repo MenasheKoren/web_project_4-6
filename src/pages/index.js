@@ -92,7 +92,10 @@ function generateCard(data) {
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
-
+// const editModal = new PopupWithForm('popup_type_edit', (data) => {
+//   profileNameValue.textContent = data.name;
+//   profileProfessionValue.textContent = data.description;
+// });
 
 const cardList = new Section({
     data: initialCards,
