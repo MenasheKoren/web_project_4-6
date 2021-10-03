@@ -79,15 +79,3 @@ export const captionPopup = imageModal.querySelector('.popup__caption');
 export const cardTemplateSelector = '.card-template';
 export const listTemplateSelector = '.card-list';
 
-// export const imageModalNew = new PopupWithImage('.popup_type_image');
-// export const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {
-//   console.log('data :>> ', data);
-
-//   generateCard(data);
-// });
-// export const editModalNew = new PopupWithForm('.popup_type_edit', (data) => {
-//   console.log('data :>> ', data);
-
-//   generateCard(data);
-
-// });
