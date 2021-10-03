@@ -1,46 +1,17 @@
 import "../pages/index.css";
 import {
   initialCards,
-  editProfileButton,
-  addCardButton,
-  editModalCloseButton,
-  addCardModalCloseButton,
-  imageModalCloseButton,
-  editFormModal,
-  addCardFormModal,
   editModal,
   addCardModal,
-  imageModal,
-  profileNameInput,
-  profileProfessionInput,
-  cardNameInput,
-  cardLinkInput,
-  profileNameValue,
-  profileProfessionValue,
-  list,
-  editForm,
-  addCardForm,
-  settings,
   cardTemplateSelector,
-  // imageModalNew,
-  // addCardModalNew,
-  initialFieldInputs,
-  templateCardItem,
-  cards,
   listTemplateSelector,
-  imagePopup,
-  captionPopup,
 
 
 } from '../scripts/utils/constants.js';
 import Card from '../scripts/components/Card.js';
-import FormValidator from '../scripts/components/FormValidator.js';
 import { PopupWithForm } from "../scripts/components/PopupWithForm.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import {
-  toggleModal,
-  closeModalWithEscape,
-  closeModalWithOverlay,
   addFormSubmitListener,
   editFormValidator,
   addCardFormValidator,
@@ -48,10 +19,6 @@ import {
 import Section from '../scripts/components/Section.js';
 
 
-
-
-// const editFormValidator = new FormValidator(settings, editForm);
-// const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
@@ -88,9 +55,7 @@ addCardFormValidator.resetValidation();
 //   toggleModal(editModal);
 // });
 
-// editModalCloseButton.addEventListener('click', () => {
-//   toggleModal(editModal);
-// });
+
 
 
 // addCardButton.addEventListener('click', (evt) => {
@@ -100,15 +65,7 @@ addCardFormValidator.resetValidation();
 //   toggleModal(addCardModal);
 // });
 
-// addCardModalCloseButton.addEventListener('click', () => {
-//   toggleModal(addCardModal);
-// });
 
-// imageModalCloseButton.addEventListener('click', () => {
-//   toggleModal(imageModal);
-// });
-
-// const cardTemplateSelector = '.card-template';
 
 const imageModalNew = new PopupWithImage('.popup_type_image');
 const addCardModalNew = new PopupWithForm('.popup_type_add-card', (data) => {

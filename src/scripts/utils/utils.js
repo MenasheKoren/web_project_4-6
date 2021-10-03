@@ -7,24 +7,7 @@ import {
 } from './constants.js';
 import FormValidator from '../components/FormValidator.js';
 
-// export const imagePopup = document.querySelector('.popup__image');
-// export const captionPopup = document.querySelector('.popup__caption');
-// export const imageModal = document.querySelector('.popup_type_image');
 
-export const closeModalWithEscape = (evt) => {
- // const openedModal = document.querySelector('.popup_opened');
-  if (openedModal && evt.key === 'Escape') {
-    toggleModal(openedModal);
-  };
-};
-
-
-export const closeModalWithOverlay = (evt) =>  {
-  //const openedModal = document.querySelector('.popup_opened');
-  if (openedModal === evt.target) {
-    toggleModal(openedModal);
-  };
-};
 
 
 export function toggleModal(popup) {
@@ -38,13 +21,6 @@ export function toggleModal(popup) {
 
   popup.classList.toggle('popup_opened');
 
-  if (!popup.classList.contains('popup_opened')) {
-    popup.removeEventListener('click', closeModalWithOverlay);
-    document.removeEventListener('keydown', closeModalWithEscape);
-  } else {
-    document.addEventListener('keydown', closeModalWithEscape);
-    popup.addEventListener('click', closeModalWithOverlay);
-  };
 };
 
 export function addFormSubmitListener(modal) {
