@@ -20,8 +20,8 @@ export default class Card {
 
 
   _handleLikeButton = () => {
-    likeButton.classList.toggle('button_filled');
-    likeButton.classList.toggle('button_empty');
+    this._likeButton.classList.toggle('button_filled');
+    this._likeButton.classList.toggle('button_empty');
   };
 
 
@@ -35,7 +35,7 @@ export default class Card {
 
     this._likeButton.addEventListener('click', this._handleLikeButton);
     this._removeButton.addEventListener('click', this._handleRemoveCard);
-    this._cardImage.addEventListener('click', this._handleCardClick());
+    this._cardImage.addEventListener('click', this._handleCardClick);
 
   }
 

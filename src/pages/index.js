@@ -28,6 +28,8 @@ import {
   templateCardItem,
   cards,
   listTemplateSelector,
+  imagePopup,
+  captionPopup,
 
 
 } from '../scripts/utils/constants.js';
@@ -46,13 +48,7 @@ import {
 import Section from '../scripts/components/Section.js';
 
 
-// const settings = {
-//   inputSelector: ".field-input",
-//   submitButtonSelector: ".popup__save"
-// };
 
-// const editForm = document.querySelector('.popup_type_edit');
-// const addCardForm = document.querySelector('.popup_type_add-card');
 
 // const editFormValidator = new FormValidator(settings, editForm);
 // const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -131,29 +127,21 @@ editModalNew.setEventListeners();
 
 function generateCard(data) {
   const cardElement = new Card(data, cardTemplateSelector, () => {
-    imageModalNew.open();
+    imageModalNew.open(data.link, data.name);
   });
-  // list.prepend(cardElement.createCardElement());
+  return cardElement.createCardElement();
 };
 
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
-// initialCards.forEach(generateCard);
 
-// const cardList = new Section({
-//   items: initialCards,
-//   renderer: (data, _items) => {
-//     cardList.addItem(generateCard(data));
-//   }
-// }, listTemplateSelector
-// );
 
 const cardList = new Section({
     data: initialCards,
     renderer: (data) => {
       cardList.addItem(generateCard(data));
     }
-  }, listTemplateSelector // Alexey says use "list"
+  }, listTemplateSelector
   );
   cardList.renderer()

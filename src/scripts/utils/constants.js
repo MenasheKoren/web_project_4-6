@@ -72,7 +72,7 @@ export const addCardFormModal = addCardModal.querySelector('.popup__form');
 
 
 // image modal elements
-export const openImageModel = imageModal.querySelector('.popup__figure');
+export const openImageModal = imageModal.querySelector('.popup__figure');
 export const imagePopup = imageModal.querySelector('.popup__image');
 export const captionPopup = imageModal.querySelector('.popup__caption');
 
