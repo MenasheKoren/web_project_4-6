@@ -6,8 +6,7 @@ export const settings = {
 export const editForm = document.querySelector('.popup_type_edit');
 export const addCardForm = document.querySelector('.popup_type_add-card');
 
-// export const editFormValidator = new FormValidator(settings, editForm);
-// export const addCardFormValidator = new FormValidator(settings, addCardForm);
+
 
 export const initialCards = [
   {
