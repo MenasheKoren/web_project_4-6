@@ -77,7 +77,7 @@ export const imageModalNew = new PopupWithImage(".popup_type_image");
 export const addCardModalNew = new PopupWithForm(
   ".popup_type_add-card",
   (data) => {
-    generateCard(data);
+    return cardList.addItem(generateCard(data));
   }
 );
 export const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {

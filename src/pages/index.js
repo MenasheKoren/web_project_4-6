@@ -15,6 +15,7 @@ import {
   generateCard,
 } from "../scripts/utils/utils.js";
 import Section from "../scripts/components/Section.js";
+import Popup from '../scripts/components/Popup.js';
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
