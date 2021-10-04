@@ -79,3 +79,5 @@ export const captionPopup = imageModal.querySelector('.popup__caption');
 export const cardTemplateSelector = '.card-template';
 export const listTemplateSelector = '.card-list';
 
+export const profileTitleSelector = '.name-input';
+export const profileDescriptionSelector = '.profession-input';

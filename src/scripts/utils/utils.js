@@ -17,8 +17,10 @@ import {
 } from "./constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import PopupWithForm from "../components/PopupWithForm.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+
+import { cardList } from '../../pages/index'
 
 export function toggleModal(popup) {
   const saveButton = popup.querySelector(".popup__save");
@@ -77,7 +79,7 @@ export const imageModalNew = new PopupWithImage(".popup_type_image");
 export const addCardModalNew = new PopupWithForm(
   ".popup_type_add-card",
   (data) => {
-    return cardList.addItem(generateCard(data));
+    return cardList.addItem(generateCard({ name: data['card-title'], link: data['card-link'] }));
   }
 );
 export const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
