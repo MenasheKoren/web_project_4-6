@@ -5,8 +5,8 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    const profileTitleSelector = '.name-input';
-    const profileDescriptionSelector = '.profession-input';
+    // const profileTitleSelector = '.name-input';
+    // const profileDescriptionSelector = '.profession-input';
   }
 
   setUserInfo(element) {
