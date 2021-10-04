@@ -16,9 +16,10 @@ import {
   editModalNew,
   generateCard,
 } from "../scripts/utils/utils.js";
-import Section from "../scripts/components/Section.js";
+import Section from '../scripts/components/Section.js';
 import Popup from '../scripts/components/Popup.js';
 import UserInfo from '../scripts/components/UserInfo.js';
+import {PopupWithForm} from '../scripts/components/PopupWithForm.js';
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
@@ -38,12 +39,12 @@ const userInfo = new UserInfo({
   userDescriptionSelector: profileDescriptionSelector
 });
 
-// const userInfoPopup = new PopupWithForm({
-//   popupSelector: ...,
-//   handleFormSubmit: (data) => {
-//     userInfo.setUserInfo(data)
-//   }
-// });
+const userInfoPopup = new PopupWithForm({
+  popupSelector: ,
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data)
+  }
+});
 
 export const cardList = new Section(
   {
