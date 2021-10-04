@@ -12,6 +12,9 @@ import {
   editFormValidator,
   addCardFormValidator,
   generateCard,
+  imageModalNew,
+  addCardModalNew,
+  editModalNew,
 
 } from "../scripts/utils/utils.js";
 import Section from "../scripts/components/Section.js";
@@ -28,16 +31,16 @@ import FormValidator from "../scripts/components/FormValidator.js";
 //   return cardElement.createCardElement();
 // }
 
-const imageModalNew = new PopupWithImage(".popup_type_image");
-const addCardModalNew = new PopupWithForm(
-  ".popup_type_add-card",
-  (data) => {
-    return cardList.addItem(generateCard(data));
-  }
-);
-const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
-  generateCard(data);
-});
+// const imageModalNew = new PopupWithImage(".popup_type_image");
+// const addCardModalNew = new PopupWithForm(
+//   ".popup_type_add-card",
+//   (data) => {
+//     return cardList.addItem(generateCard(data));
+//   }
+// );
+// const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
+//   generateCard(data);
+// });
 
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
