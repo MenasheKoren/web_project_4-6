@@ -81,3 +81,5 @@ export const listTemplateSelector = '.card-list';
 
 export const profileTitleSelector = '.name-input';
 export const profileDescriptionSelector = '.profession-input';
+export const profileSelector = '.popup_type_edit';
+

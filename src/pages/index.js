@@ -5,7 +5,8 @@ import {
   addCardModal,
   listTemplateSelector,
   profileDescriptionSelector,
-  profileTitleSelector
+  profileTitleSelector,
+  profileSelector,
 } from "../scripts/utils/constants.js";
 import {
   addFormSubmitListener,
@@ -40,7 +41,7 @@ const userInfo = new UserInfo({
 });
 
 const userInfoPopup = new PopupWithForm({
-  popupSelector: ,
+  popupSelector: profileSelector,
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data)
   }
