@@ -35,17 +35,15 @@ editModalNew.setEventListeners();
 addFormSubmitListener(editModal);
 addFormSubmitListener(addCardModal);
 
-const userInfo = new UserInfo({
-  userNameSelector: profileTitleSelector,
-  userDescriptionSelector: profileDescriptionSelector
-});
+const userInfo = new PopupWithForm(profileSelector, (data) => {
+      userInfo.setUserInfo(data)
+    }
+  );
 
-const userInfoPopup = new PopupWithForm({
-  popupSelector: profileSelector,
-  handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data)
-  }
-});
+const userInfoPopup = new PopupWithForm(profileSelector, (data) => {
+      userInfo.setUserInfo(data)
+    }
+  );
 
 export const cardList = new Section(
   {
