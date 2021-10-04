@@ -17,7 +17,7 @@ import {
 } from "./constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
 export function toggleModal(popup) {
@@ -73,13 +73,13 @@ export function generateCard(data) {
   return cardElement.createCardElement();
 }
 
-export const imageModalNew = new PopupWithImage(".popup_type_image");
-export const addCardModalNew = new PopupWithForm(
-  ".popup_type_add-card",
-  (data) => {
-    return cardList.addItem(generateCard(data));
-  }
-);
-export const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
-  generateCard(data);
-});
+// export const imageModalNew = new PopupWithImage(".popup_type_image");
+// export const addCardModalNew = new PopupWithForm(
+//   ".popup_type_add-card",
+//   (data) => {
+//     return cardList.addItem(generateCard(data));
+//   }
+// );
+// export const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
+//   generateCard(data);
+// });
