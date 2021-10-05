@@ -1,13 +1,15 @@
-import { toggleModal, imageModal, imagePopup, captionPopup } from './utils.js';
+import { imageModal, imagePopup, captionPopup } from '../utils/constants.js';
+import { toggleModal } from '../utils/utils.js';
 
-export class Card {
-  constructor({ name, link }, templateCardSelector) {
+export default class Card {
+  constructor({ name, link }, templateCardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
+    this._handleCardClick = handleCardClick;
 
-    this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card')
-  }
+    this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card');
+  };
 
   _handlePreviewPicture = () => {
     toggleModal(imageModal);
@@ -18,8 +20,8 @@ export class Card {
 
 
   _handleLikeButton = () => {
-    likeButton.classList.toggle('button_filled');
-    likeButton.classList.toggle('button_empty');
+    this._likeButton.classList.toggle('button_filled');
+    this._likeButton.classList.toggle('button_empty');
   };
 
 
@@ -33,15 +35,15 @@ export class Card {
 
     this._likeButton.addEventListener('click', this._handleLikeButton);
     this._removeButton.addEventListener('click', this._handleRemoveCard);
-    this._cardImage.addEventListener('click', this._handlePreviewPicture);
+    this._cardImage.addEventListener('click', this._handleCardClick);
 
-  }
+  };
 
   createCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);
     this._cardTitle = this._cardElement.querySelector('.card__location');
 
-     this._cardImage = this._cardElement.querySelector('.card__image');
+    this._cardImage = this._cardElement.querySelector('.card__image');
 
     this._cardTitle.textContent = this._name;
     this._cardImage.src = this._link;
@@ -50,7 +52,7 @@ export class Card {
     this._addEventListeners();
 
     return this._cardElement;
-  }
+  };
 };
 
 
