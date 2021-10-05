@@ -9,7 +9,7 @@ export default class Card {
     this._handleCardClick = handleCardClick;
 
     this._cardTemplate = document.querySelector(templateCardSelector).content.querySelector('.card');
-  }
+  };
 
   _handlePreviewPicture = () => {
     toggleModal(imageModal);
@@ -37,7 +37,7 @@ export default class Card {
     this._removeButton.addEventListener('click', this._handleRemoveCard);
     this._cardImage.addEventListener('click', this._handleCardClick);
 
-  }
+  };
 
   createCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);

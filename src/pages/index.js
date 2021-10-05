@@ -4,8 +4,6 @@ import {
   editModal,
   addCardModal,
   listTemplateSelector,
-  profileDescriptionSelector,
-  profileTitleSelector,
   profileSelector,
 } from "../scripts/utils/constants.js";
 import {
@@ -18,8 +16,6 @@ import {
   generateCard,
 } from "../scripts/utils/utils.js";
 import Section from '../scripts/components/Section.js';
-import Popup from '../scripts/components/Popup.js';
-import UserInfo from '../scripts/components/UserInfo.js';
 import {PopupWithForm} from '../scripts/components/PopupWithForm.js';
 
 editFormValidator.enableValidation();

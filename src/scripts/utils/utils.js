@@ -27,10 +27,10 @@ export function toggleModal(popup) {
 
   if (saveButton) {
     saveButton.disabled = true;
-  }
+  };
 
   popup.classList.toggle("popup_opened");
-}
+};
 
 export function addFormSubmitListener(modal) {
   modal.addEventListener("submit", (evt) => {
@@ -46,7 +46,7 @@ export function addFormSubmitListener(modal) {
     }
     toggleModal(modal);
   });
-}
+};
 
 export const editFormValidator = new FormValidator(settings, editForm);
 export const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -73,7 +73,7 @@ export function generateCard(data) {
     imageModalNew.open(data.link, data.name);
   });
   return cardElement.createCardElement();
-}
+};
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 export const addCardModalNew = new PopupWithForm(
