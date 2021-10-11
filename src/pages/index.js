@@ -15,7 +15,6 @@ import {
   profileNameInput,
   profileProfessionInput,
   addCardFormModal,
-
 } from "../scripts/utils/constants";
 import { generateCard, toggleModal } from "../scripts/utils/utils";
 import Section from "../scripts/components/Section";
@@ -67,8 +66,9 @@ editModalNew.setEventListeners();
 // addFormSubmitListener(editModal);
 // addFormSubmitListener(addCardModal);
 
-const userInfoPop = new PopupWithForm(profileSelector, (data) => {
+const userInfoPop = new UserInfo(profileSelector, (data) => {
   userInfoPop.setUserInfo(data);
+  userInfoPop.close();
 });
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
