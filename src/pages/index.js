@@ -15,6 +15,8 @@ import {
   profileNameInput,
   profileProfessionInput,
   addCardFormModal,
+  cardNameInput,
+  cardLinkInput,
 } from "../scripts/utils/constants";
 import { generateCard, toggleModal } from "../scripts/utils/utils";
 import Section from "../scripts/components/Section";
@@ -22,6 +24,23 @@ import { PopupWithForm } from "../scripts/components/PopupWithForm";
 import FormValidator from "../scripts/components/FormValidator";
 import PopupWithImage from "../scripts/components/PopupWithImage";
 import UserInfo from "../scripts/components/UserInfo";
+
+
+// export function addFormSubmitListener(modal) {
+//   modal.addEventListener("submit", (evt) => {
+//     evt.preventDefault();
+
+//     if (modal === editModal) {
+//       document.querySelector(".edit-name").textContent = profileNameInput.value;
+//       document.querySelector(".profile-info__profession").textContent =
+//         profileProfessionInput.value;
+//     } else if (modal === addCardModal) {
+//       generateCard({ name: cardNameInput.value, link: cardLinkInput.value });
+//       addCardFormModal.reset();
+//     }
+//     toggleModal(modal);
+//   });
+// }
 
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);

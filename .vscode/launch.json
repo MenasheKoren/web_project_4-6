@@ -6,11 +6,17 @@
   "configurations": [
 
     {
-      "type": "pwa-chrome",
+      "type": "firefox",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "name": "Launch Firefox against localhost",
       "url": "http://localhost:8000",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "pathMappings": [
+        {
+          "url": "webpack://web_project_8/node_modules/ansi-html-community",
+          "path": "${workspaceFolder}/src/pages"
+        }
+      ]
     }
   ]
 }
