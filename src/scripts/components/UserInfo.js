@@ -1,19 +1,20 @@
+import { userNameValue, userProfessionValue } from "../utils/constants";
 export default class UserInfo {
-  constructor(_userName, _userProfession) {
-    this._userName = document.querySelector(".name-input");
-    this._userProfession = document.querySelector(".profession-input");
+  constructor(_userNameElement, _userProfessionElement) {
+    this._userNameElement = document.querySelector(userNameValue);
+    this._userProfessionElement = document.querySelector(userProfessionValue);
   }
 
   getUserInfo() {
     return {
       userName: this._userNameElement.textContent,
-      userDescription: this._userDescriptionElement.textContent,
+      userProfession: this._userProfessionElement.textContent
     };
   }
 
   setUserInfo(userInfo) {
-    const { userNameSelector, userDescriptionSelector } = userInfo;
-    this._userName.textContent = userNameSelector;
-    this._userProfession.textContent = userDescriptionSelector;
+    const { userNameSelector, userProfessionSelector } = userInfo;
+    this._userNameElement.textContent = userNameSelector;
+    this._userProfessionElement.textContent = userProfessionSelector;
   }
 }

@@ -6,6 +6,8 @@ import {
   settings,
   editForm,
   addCardForm,
+  editProfileButton,
+  addCardButton,
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
 import Section from "../scripts/components/Section";
@@ -25,6 +27,15 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 });
 const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
   generateCard(data);
+});
+
+editProfileButton.addEventListener("click", () => {
+  profilePopup.open();
+
+});
+
+addCardButton.addEventListener("click", () => {
+  addCardModalNew.open();
 });
 
 editFormValidator.enableValidation();
