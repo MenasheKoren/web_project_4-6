@@ -30,6 +30,9 @@ const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
 });
 
 editProfileButton.addEventListener("click", () => {
+  const currentUserInfo = userInfo.getUserInfo();
+  userName.value = currentUserInfo.userName;
+  userProfession.value = currentUserInfo.userProfession;
   profilePopup.open();
 });
 
@@ -47,13 +50,13 @@ imageModalNew.setEventListeners();
 addCardModalNew.setEventListeners();
 editModalNew.setEventListeners();
 
-const userInfoPop = new UserInfo(profileSelector, (data) => {
-  userInfoPop.setUserInfo(data);
-  userInfoPop.close();
+const userInfo = new UserInfo(profileSelector, (data) => {
+  userInfo.setUserInfo(data);
+  userInfo.close();
 });
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  userInfoPop.setUserInfo(data);
+  userInfo.setUserInfo(data);
   profilePopup.close();
 });
 
@@ -67,3 +70,4 @@ const cardList = new Section(
   listTemplateSelector
 );
 cardList.renderer();
+

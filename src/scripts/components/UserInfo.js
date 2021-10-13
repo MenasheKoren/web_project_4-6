@@ -1,6 +1,6 @@
 import { userNameValue, userProfessionValue } from "../utils/constants";
 export default class UserInfo {
-  constructor(_userNameElement, _userProfessionElement) {
+  constructor(userNameElement, userProfessionElement) {
     this._userNameElement = document.querySelector(userNameValue);
     this._userProfessionElement = document.querySelector(userProfessionValue);
   }
