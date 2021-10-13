@@ -31,7 +31,6 @@ const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
 
 editProfileButton.addEventListener("click", () => {
   profilePopup.open();
-
 });
 
 addCardButton.addEventListener("click", () => {
