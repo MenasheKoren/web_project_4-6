@@ -8,6 +8,10 @@ import {
   addCardForm,
   editProfileButton,
   addCardButton,
+  userProfessionValue,
+  userNameValue,
+  profileNameInput,
+  profileProfessionInput,
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
 import Section from "../scripts/components/Section";
@@ -31,8 +35,8 @@ const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
-  userName.value = currentUserInfo.userName;
-  userProfession.value = currentUserInfo.userProfession;
+  profileNameInput.value = currentUserInfo.userName;
+  profileProfessionInput.value = currentUserInfo.userProfession;
   profilePopup.open();
 });
 
@@ -50,10 +54,7 @@ imageModalNew.setEventListeners();
 addCardModalNew.setEventListeners();
 editModalNew.setEventListeners();
 
-const userInfo = new UserInfo(profileSelector, (data) => {
-  userInfo.setUserInfo(data);
-  userInfo.close();
-});
+const userInfo = new UserInfo(userNameValue, userProfessionValue);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
   userInfo.setUserInfo(data);

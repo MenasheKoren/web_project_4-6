@@ -91,6 +91,6 @@ export const profileProfessionSelector = ".profession-input";
 export const profileSelector = ".popup_type_edit";
 
 export const userNameValue = ".edit-name";
-export const userProfessionValue = ".profile-info_profession";
+export const userProfessionValue = ".profile-info__profession";
 
 // export const popupSelector = '.popup'
