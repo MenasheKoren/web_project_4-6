@@ -29,9 +29,6 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     generateCard({ name: data["card-title"], link: data["card-link"] })
   );
 });
-const editModalNew = new PopupWithForm(".popup_type_edit", (data) => {
-  generateCard(data);
-});
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
@@ -52,7 +49,6 @@ addCardFormValidator.resetValidation();
 
 imageModalNew.setEventListeners();
 addCardModalNew.setEventListeners();
-editModalNew.setEventListeners();
 
 const userInfo = new UserInfo(userNameValue, userProfessionValue);
 
@@ -60,6 +56,8 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
   userInfo.setUserInfo(data);
   profilePopup.close();
 });
+
+profilePopup.setEventListeners();
 
 const cardList = new Section(
   {
@@ -71,4 +69,3 @@ const cardList = new Section(
   listTemplateSelector
 );
 cardList.renderer();
-
