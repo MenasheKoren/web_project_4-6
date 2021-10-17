@@ -4,7 +4,7 @@
   "description": "https://menashekoren.github.io/web_project_4-6/ ### Overview",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
+    "build": "rm -rf dist && webpack",
     "dev": "webpack serve"
   },
   "repository": {
