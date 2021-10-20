@@ -1,3 +1,4 @@
+import { customFetch } from "../utils/utils";
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -5,13 +6,16 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+    return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
-      .catch(console.log);
+    });
   }
-  // other methods for working with the API
+
+  getUserInfo() {
+    return customFetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    });
+  }
 }
 
 export const api = new Api({

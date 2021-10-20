@@ -8,3 +8,8 @@ export function generateCard(data) {
   });
   return cardElement.createCardElement();
 }
+
+export const customFetch = (url, headers) =>
+  fetch(url, headers)
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
+    .catch(console.log);

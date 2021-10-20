@@ -25,6 +25,11 @@ api.getInitialCards().then((res) => {
   // console.log("res", res);
 });
 
+api.getUserInfo().then((res) => {
+  userInfo.setUserInfo({ name: res.name, profession: res.about });
+  console.log("res", res);
+});
+
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 
