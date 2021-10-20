@@ -1,6 +1,5 @@
 import "../pages/index.css";
 import {
-  initialCards,
   listTemplateSelector,
   profileSelector,
   settings,
@@ -14,11 +13,17 @@ import {
   profileProfessionInput,
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
-import Section from "../scripts/components/Section";
+import { Section } from "../scripts/components/Section";
 import { PopupWithForm } from "../scripts/components/PopupWithForm";
-import FormValidator from "../scripts/components/FormValidator";
-import PopupWithImage from "../scripts/components/PopupWithImage";
-import UserInfo from "../scripts/components/UserInfo";
+import { FormValidator } from "../scripts/components/FormValidator";
+import { PopupWithImage } from "../scripts/components/PopupWithImage";
+import { UserInfo } from "../scripts/components/UserInfo";
+import { api } from "../scripts/components/Api";
+
+api.getInitialCards().then((res) => {
+  cardList.renderer(res);
+  // console.log("res", res);
+});
 
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -61,7 +66,6 @@ profilePopup.setEventListeners();
 
 const cardList = new Section(
   {
-    data: initialCards,
     renderer: (data) => {
       cardList.addItem(generateCard(data));
     },

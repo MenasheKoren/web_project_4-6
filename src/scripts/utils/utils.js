@@ -1,5 +1,5 @@
 import { cardTemplateSelector } from "./constants";
-import Card from "../components/Card";
+import { Card } from "../components/Card";
 import { imageModalNew } from "../../pages/index";
 
 export function generateCard(data) {
