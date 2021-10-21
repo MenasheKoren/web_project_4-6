@@ -40,7 +40,6 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((res) => {
-      console.log('res :>> ', res);
       cardList.addItem(generateCard({ name: res.name, link: res.link }));
     });
 });

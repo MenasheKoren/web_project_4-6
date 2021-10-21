@@ -1,4 +1,3 @@
-import { cardLinkSelector, cardTitleSelector } from "../utils/constants";
 import { customFetch } from "../utils/utils";
 class Api {
   constructor({ baseUrl, headers }) {
@@ -19,7 +18,6 @@ class Api {
   }
 
   createCard(data) {
-    console.log(JSON.stringify(data));
     return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "POST",

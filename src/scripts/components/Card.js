@@ -1,9 +1,15 @@
 export class Card {
-  constructor({ name, link }, templateCardSelector, handleCardClick) {
+  constructor(
+    { name, link },
+    templateCardSelector,
+    handleCardClick,
+    handleRemoveCard
+  ) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleRemoveCard = handleRemoveCard;
 
     this._cardTemplate = document
       .querySelector(templateCardSelector)
@@ -15,7 +21,7 @@ export class Card {
     this._likeButton.classList.toggle("button_empty");
   };
 
-  _handleRemoveCard = () => this._cardElement.remove(null);
+  // _handleRemoveCard = () => this._cardElement.remove(null);
 
   _addEventListeners() {
     this._cardImage = this._cardElement.querySelector(".card__image");
