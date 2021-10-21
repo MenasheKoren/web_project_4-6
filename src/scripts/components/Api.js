@@ -1,3 +1,4 @@
+import { cardLinkSelector, cardTitleSelector } from "../utils/constants";
 import { customFetch } from "../utils/utils";
 class Api {
   constructor({ baseUrl, headers }) {
@@ -14,6 +15,18 @@ class Api {
   getUserInfo() {
     return customFetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
+    });
+  }
+
+  createCard(data) {
+    console.log(JSON.stringify(data));
+    return customFetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
+      method: "POST",
+      body: JSON.stringify({
+        name: data,
+        link: data,
+      }),
     });
   }
 }

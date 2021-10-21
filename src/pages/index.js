@@ -27,7 +27,7 @@ api.getInitialCards().then((res) => {
 
 api.getUserInfo().then((res) => {
   userInfo.setUserInfo({ name: res.name, profession: res.about });
-  console.log("res", res);
+  // console.log("res", res);
 });
 
 const editFormValidator = new FormValidator(settings, editForm);
@@ -35,9 +35,15 @@ const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
-  return cardList.addItem(
-    generateCard({ name: data["card-title"], link: data["card-link"] })
-  );
+  console.log("data :>> ", data);
+
+  api.createCard(data).then((res) => {
+    console.log("res :>> ", res);
+    cardList.addItem(generateCard({ name: res.name, link: res.link }));
+  });
+  // return cardList.addItem(
+  //   generateCard({ name: data["card-title"], link: data["card-link"] })
+  // );
 });
 
 editProfileButton.addEventListener("click", () => {
