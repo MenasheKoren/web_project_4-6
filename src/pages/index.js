@@ -37,13 +37,12 @@ export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   console.log("data :>> ", data);
 
-  api.createCard(data).then((res) => {
-    console.log("res :>> ", res);
-    cardList.addItem(generateCard({ name: res.name, link: res.link }));
-  });
-  // return cardList.addItem(
-  //   generateCard({ name: data["card-title"], link: data["card-link"] })
-  // );
+  api
+    .createCard({ name: data["card-title"], link: data["card-link"] })
+    .then((res) => {
+      console.log('res :>> ', res);
+      cardList.addItem(generateCard({ name: res.name, link: res.link }));
+    });
 });
 
 editProfileButton.addEventListener("click", () => {

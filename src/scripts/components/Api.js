@@ -23,10 +23,7 @@ class Api {
     return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "POST",
-      body: JSON.stringify({
-        name: data,
-        link: data,
-      }),
+      body: JSON.stringify(data),
     });
   }
 }
