@@ -81,4 +81,4 @@ const cardList = new Section(
   },
   listTemplateSelector
 );
-cardList.renderer();
+// cardList.renderer();

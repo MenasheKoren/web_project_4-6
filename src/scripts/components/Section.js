@@ -5,9 +5,11 @@ export class Section {
   }
 
   renderer(data) {
-    data.forEach((item) => {
-      this._renderer(item);
-    });
+    if (data.length) {
+      data.forEach((item) => {
+        this._renderer(item);
+      });
+    }
   }
 
   addItem(element) {

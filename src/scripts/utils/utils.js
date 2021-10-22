@@ -1,4 +1,4 @@
-import { cardTemplateSelector } from "./constants";
+import { cardTemplateSelector, listTemplateSelector } from "./constants";
 import { Card } from "../components/Card";
 import { imageModalNew } from "../../pages/index";
 
