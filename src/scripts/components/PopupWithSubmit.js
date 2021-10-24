@@ -6,11 +6,11 @@ export class PopupWithSubmit extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
-    this._form.addEventListener("submit", (e) => {
+    this._popupElement.addEventListener("submit", (e) => {
       e.preventDefault();
-      this._submitHandler(this._getInputValues());
+      this._submitHandler();
       // this.close();
     });
   }
 }
+

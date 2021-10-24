@@ -19,15 +19,14 @@ import { FormValidator } from "../scripts/components/FormValidator";
 import { PopupWithImage } from "../scripts/components/PopupWithImage";
 import { UserInfo } from "../scripts/components/UserInfo";
 import { api } from "../scripts/components/Api";
+import { PopupWithSubmit } from "../scripts/components/PopupWithSubmit";
 
 api.getInitialCards().then((res) => {
   cardList.renderer(res);
-  // console.log("res", res);
 });
 
 api.getUserInfo().then((res) => {
   userInfo.setUserInfo({ name: res.name, profession: res.about });
-  // console.log("res", res);
 });
 
 const editFormValidator = new FormValidator(settings, editForm);
@@ -35,14 +34,17 @@ const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
-  console.log("data :>> ", data);
-
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((res) => {
       cardList.addItem(generateCard({ name: res.name, link: res.link }));
     });
 });
+
+const confirmPopup = new PopupWithSubmit('.popup_type_remove-card')
+confirmPopup.setEventListeners()
+
+
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
@@ -81,4 +83,3 @@ const cardList = new Section(
   },
   listTemplateSelector
 );
-// cardList.renderer();

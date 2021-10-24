@@ -54,6 +54,7 @@ export const imageModalCloseButton = imageModal.querySelector(".popup__close");
 // open modal buttons
 export const editProfileButton = document.querySelector(".edit-button");
 export const addCardButton = document.querySelector(".add-button");
+// export const removeCardButton = document.querySelector()
 
 // inputs
 export const profileNameInput = editModal.querySelector(

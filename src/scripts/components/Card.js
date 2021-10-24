@@ -21,9 +21,9 @@ export class Card {
     this._likeButton.classList.toggle("button_empty");
   };
 
-  // _handleRemoveCard = () => this._cardElement.remove(null);
+  _handleRemoveCard = () => this._cardElement.remove(null);
 
-  _addEventListeners() {
+  _setEventListeners() {
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._removeButton = this._cardElement.querySelector(".card__remove");
     this._likeButton = this._cardElement.querySelector(".card__like");
@@ -43,7 +43,7 @@ export class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
 
-    this._addEventListeners();
+    this._setEventListeners();
 
     return this._cardElement;
   };
