@@ -21,7 +21,7 @@ export class Card {
     this._likeButton.classList.toggle("button_empty");
   };
 
-  _handleRemoveCard = () => this._cardElement.remove(null);
+  // _handleRemoveCard = () => this._cardElement.remove(null);
 
   _setEventListeners() {
     this._cardImage = this._cardElement.querySelector(".card__image");

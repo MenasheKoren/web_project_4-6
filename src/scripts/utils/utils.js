@@ -1,11 +1,19 @@
-import { cardTemplateSelector, listTemplateSelector } from "./constants";
+import { cardTemplateSelector } from "./constants";
 import { Card } from "../components/Card";
-import { imageModalNew } from "../../pages/index";
+import { imageModalNew, confirmPopup } from "../../pages/index";
 
 export function generateCard(data) {
-  const cardElement = new Card(data, cardTemplateSelector, () => {
-    imageModalNew.open(data.link, data.name);
-  });
+  const cardElement = new Card(
+    data,
+    cardTemplateSelector,
+    () => {
+      imageModalNew.open(data.link, data.name);
+    },
+    () => {
+      confirmPopup.open();
+    }
+  );
+
   return cardElement.createCardElement();
 }
 
