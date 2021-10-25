@@ -41,10 +41,8 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     });
 });
 
-export const confirmPopup = new PopupWithSubmit('.popup_type_remove-card')
-confirmPopup.setAction()
-
-
+export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
+confirmPopup.setEventListeners();
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();

@@ -24,6 +24,8 @@ class Api {
       body: JSON.stringify(data),
     });
   }
+
+  
 }
 
 export const api = new Api({
