@@ -15,13 +15,12 @@ export function generateCard(data) {
 
       confirmPopup.setAction(() => {
         api.deleteCard(id).then((res) => {
-          console.log("Card is deleted!!");
-          cardElement.removeCard()
-          confirmPopup.close()
+          cardElement.removeCard();
+          confirmPopup.close();
         });
-      })
-
-    }, userId
+      });
+    },
+    userId
   );
 
   return cardElement.createCardElement();

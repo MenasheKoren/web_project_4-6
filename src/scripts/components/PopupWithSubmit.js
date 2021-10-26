@@ -5,11 +5,12 @@ export class PopupWithSubmit extends Popup {
   }
 
   setEventListeners() {
-    this._popupElement.querySelector('.popup__save').addEventListener("submit", (e) => {
-      e.preventDefault();
-      console.log('this._submitHandler :>> ', this._submitHandler);
-      this._submitHandler;
-    });
+    this._popupElement
+      .querySelector(".popup__save")
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        this._submitHandler;
+      });
     super.setEventListeners();
   }
 }

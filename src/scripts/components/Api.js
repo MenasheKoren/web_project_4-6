@@ -31,7 +31,6 @@ class Api {
       method: "DELETE",
     });
   }
-
 }
 
 export const api = new Api({

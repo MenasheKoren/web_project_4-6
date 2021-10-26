@@ -21,15 +21,15 @@ import { UserInfo } from "../scripts/components/UserInfo";
 import { api } from "../scripts/components/Api";
 import { PopupWithSubmit } from "../scripts/components/PopupWithSubmit";
 
-export let userId
+export let userId;
 
-  Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
-    ([cardData, userData]) => {
-      userId = userData._id
-      cardList.renderer(cardData);
-      userInfo.setUserInfo({ name: userData.name, profession: userData.about });
-    }
-  );
+Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
+  ([cardData, userData]) => {
+    userId = userData._id;
+    cardList.renderer(cardData);
+    userInfo.setUserInfo({ name: userData.name, profession: userData.about });
+  }
+);
 
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
