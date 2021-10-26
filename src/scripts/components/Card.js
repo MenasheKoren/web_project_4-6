@@ -13,6 +13,8 @@ export class Card {
     this._handleRemoveCard = handleRemoveCard;
     this._id = data._id;
 
+    console.log("data :>> ", data);
+
     this._userId = userId;
     this._ownerId = data.owner._id;
 
@@ -37,10 +39,8 @@ export class Card {
     this._likeButton = this._cardElement.querySelector(".card__like");
 
     this._likeButton.addEventListener("click", this._handleLikeButton);
-    this._removeButton.addEventListener(
-      "click",
-      this._handleRemoveCard(this._ownerId)
-    );
+    this._removeButton.addEventListener("click", () =>
+      this._handleRemoveCard(this._ownerId));
     this._cardImage.addEventListener("click", this._handleCardClick);
   }
 
