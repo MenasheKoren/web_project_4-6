@@ -1,15 +1,16 @@
 export class Card {
   constructor(
-    { name, link },
+    data,
     templateCardSelector,
     handleCardClick,
     handleRemoveCard
   ) {
-    this._name = name;
-    this._link = link;
+    this._name = data.name;
+    this._link = data.link;
     this._templateCardSelector = templateCardSelector;
     this._handleCardClick = handleCardClick;
     this._handleRemoveCard = handleRemoveCard;
+    this._id = data.id
 
     this._cardTemplate = document
       .querySelector(templateCardSelector)
@@ -21,7 +22,10 @@ export class Card {
     this._likeButton.classList.toggle("button_empty");
   };
 
-  // _handleRemoveCard = () => this._cardElement.remove(null);
+  removeCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
+  }
 
   _setEventListeners() {
     this._cardImage = this._cardElement.querySelector(".card__image");
@@ -29,7 +33,7 @@ export class Card {
     this._likeButton = this._cardElement.querySelector(".card__like");
 
     this._likeButton.addEventListener("click", this._handleLikeButton);
-    this._removeButton.addEventListener("click", this._handleRemoveCard);
+    this._removeButton.addEventListener("click", this._handleRemoveCard(this._id));
     this._cardImage.addEventListener("click", this._handleCardClick);
   }
 

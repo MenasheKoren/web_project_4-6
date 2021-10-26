@@ -10,5 +10,6 @@ export class PopupWithImage extends Popup {
     captionElement.textContent = name;
 
     super.open();
+    super.setEventListeners();
   }
 }
