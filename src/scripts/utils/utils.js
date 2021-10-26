@@ -1,6 +1,6 @@
 import { cardTemplateSelector } from "./constants";
 import { Card } from "../components/Card";
-import { imageModalNew, confirmPopup } from "../../pages/index";
+import { imageModalNew, confirmPopup, userId } from "../../pages/index";
 import { api } from "../components/Api";
 
 export function generateCard(data) {
@@ -21,7 +21,7 @@ export function generateCard(data) {
         });
       })
 
-    }
+    }, userId
   );
 
   return cardElement.createCardElement();
