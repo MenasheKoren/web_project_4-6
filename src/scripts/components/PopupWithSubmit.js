@@ -6,10 +6,9 @@ export class PopupWithSubmit extends Popup {
 
   setEventListeners() {
     this._popupElement
-      .querySelector(".popup__save")
       .addEventListener("submit", (e) => {
         e.preventDefault();
-        this._submitHandler;
+        this._submitHandler();
       });
     super.setEventListeners();
   }
