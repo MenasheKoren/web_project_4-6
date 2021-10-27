@@ -3,14 +3,18 @@ export class Card {
     data,
     templateCardSelector,
     handleCardClick,
+    handleLikeButton,
     handleRemoveCard,
     userId
   ) {
     this._name = data.name;
     this._link = data.link;
+    this._likes = data.likes;
+
     this._templateCardSelector = templateCardSelector;
     this._handleCardClick = handleCardClick;
     this._handleRemoveCard = handleRemoveCard;
+    this._handleLikeButton = handleLikeButton;
     this._id = data._id;
 
     this._userId = userId;
@@ -21,10 +25,22 @@ export class Card {
       .content.querySelector(".card");
   }
 
-  _handleLikeButton = () => {
-    this._likeButton.classList.toggle("button_filled");
-    this._likeButton.classList.toggle("button_empty");
-  };
+  isLiked() {
+    return this._likes.some((person) => person._id === this._userId);
+  }
+
+  likeCard(newLikes) {
+    this._likes = newLikes;
+    this._cardElement.querySelector(".card__likes-count").textContent =
+      this._likes.length;
+
+    this._cardElement
+      .querySelector(".card__like")
+      .classList.toggle("button_filled");
+    this._cardElement
+      .querySelector(".card__like")
+      .classList.toggle("button_empty");
+  }
 
   removeCard() {
     this._cardElement.remove();
@@ -36,9 +52,11 @@ export class Card {
     this._removeButton = this._cardElement.querySelector(".card__remove");
     this._likeButton = this._cardElement.querySelector(".card__like");
 
-    this._likeButton.addEventListener("click", this._handleLikeButton);
+    this._likeButton.addEventListener("click", () =>
+      this._handleLikeButton(this._id)
+    );
     this._removeButton.addEventListener("click", () =>
-      this._handleRemoveCard(this._ownerId)
+      this._handleRemoveCard(this._id)
     );
     this._cardImage.addEventListener("click", this._handleCardClick);
   }
@@ -55,6 +73,14 @@ export class Card {
 
     if (this._ownerId !== this._userId) {
       this._cardElement.querySelector(".card__remove").style.display = "none";
+    }
+
+    this._cardElement.querySelector(".card__likes-count").textContent =
+      this._likes.length;
+
+
+    if (this.isLiked()) {
+      this.likeCard(this._likes);
     }
 
     this._setEventListeners();

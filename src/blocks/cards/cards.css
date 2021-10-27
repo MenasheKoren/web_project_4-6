@@ -2,6 +2,7 @@
   padding-top: 2.25em;
   margin: 0 auto;
   max-width: calc(100% - 2.375em);
+  color: rgba(0, 0, 0, 1);
 }
 
 @media screen and (min-width: 880px) {

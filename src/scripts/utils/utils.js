@@ -11,6 +11,19 @@ export function generateCard(data) {
       imageModalNew.open(data.link, data.name);
     },
     (id) => {
+      const isAlreadyLiked = cardElement.isLiked();
+
+      if (isAlreadyLiked) {
+        api.unlikeCard(id).then((res) => {
+          cardElement.likeCard(res.likes);
+        });
+      } else {
+        api.likeCard(id).then((res) => {
+          cardElement.likeCard(res.likes);
+        });
+      }
+    },
+    (id) => {
       confirmPopup.open();
 
       confirmPopup.setAction(() => {

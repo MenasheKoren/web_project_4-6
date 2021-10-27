@@ -31,6 +31,20 @@ class Api {
       method: "DELETE",
     });
   }
+
+  likeCard(cardId) {
+    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      headers: this._headers,
+      method: "PUT",
+    });
+  }
+
+  unlikeCard(cardId) {
+    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      headers: this._headers,
+      method: "DELETE",
+    });
+  }
 }
 
 export const api = new Api({
