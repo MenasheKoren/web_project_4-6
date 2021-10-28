@@ -90,6 +90,7 @@ export const listTemplateSelector = ".card-list";
 export const profileNameSelector = ".name-input";
 export const profileProfessionSelector = ".profession-input";
 export const profileSelector = ".popup_type_edit-profile";
+export const avatarSelector = ".image-link";
 
 export const userNameValue = ".edit-name";
 export const userProfessionValue = ".profile-info__profession";
