@@ -78,7 +78,6 @@ export class Card {
     this._cardElement.querySelector(".card__likes-count").textContent =
       this._likes.length;
 
-
     if (this.isLiked()) {
       this.likeCard(this._likes);
     }

@@ -1,4 +1,4 @@
-reated by https://www.toptal.com/developers/gitignore/api/linux,vim,visualstudiocode
+eated by https://www.toptal.com/developers/gitignore/api/linux,vim,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,vim,visualstudiocode
 
 ### Linux ###
@@ -57,6 +57,4 @@ tags
 .env/*
 
 
-node_modules
-dist
 node_modules
