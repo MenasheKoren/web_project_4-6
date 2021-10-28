@@ -51,10 +51,10 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
 const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (userData) => {
-  api.editAvatar(userData)
+  api.editAvatar(userData['image-link'])
     .then((res) => {
       console.log('res :>> ', res);
-      userInfo.setUserInfo({avatar: userData.avatar})
+      userInfo.setUserInfo(userData['image-link'])
     })
 });
 
