@@ -13,6 +13,7 @@ import {
   profileNameInput,
   profileProfessionInput,
   editAvatarButton,
+  userAvatarValue
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
@@ -50,10 +51,10 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
 const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (data) => {
-  api.editAvatar({avatar: data.avatar})
+  api.editAvatar(data['image-link'])
     .then(() => {
       console.log('data :>> ', data);
-      userInfo.setUserInfo({avatar: data.avatar})
+      userInfo.setUserInfo(data['image-link'])
     })
 });
 
@@ -85,7 +86,7 @@ addCardModalNew.setEventListeners();
 updateAvatar.setEventListeners();
 confirmPopup.setEventListeners();
 
-const userInfo = new UserInfo(userNameValue, userProfessionValue);
+const userInfo = new UserInfo(userNameValue, userProfessionValue, userAvatarValue);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
   api.editUserInfo({ name: data.name, about: data.profession }).then(() => {

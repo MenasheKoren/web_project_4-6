@@ -11,7 +11,7 @@ export class UserInfo {
     return {
       userName: this._userNameElement.textContent,
       userProfession: this._userProfessionElement.textContent,
-      userAvatar: this._avatarSelectorElement.textContent
+      userAvatar: this._avatarSelectorElement
     };
   }
 
@@ -19,6 +19,6 @@ export class UserInfo {
     const { name, profession, avatar } = userInfo;
     this._userNameElement.textContent = name;
     this._userProfessionElement.textContent = profession;
-    this._avatarSelectorElement.textContent = avatar;
+    this._avatarSelectorElement = avatar;
   }
 }
