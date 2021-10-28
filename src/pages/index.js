@@ -31,7 +31,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
   ([cardData, userData]) => {
     userId = userData._id;
     cardList.renderer(cardData);
-    userInfo.setUserInfo({ name: userData.name, profession: userData.about });
+    userInfo.setUserInfo({ name: userData.name, profession: userData.about, avatar: userData.avatar });
   }
 );
 
@@ -50,11 +50,11 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
-const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (data) => {
-  api.editAvatar(data['image-link'])
-    .then(() => {
-      console.log('data :>> ', data);
-      userInfo.setUserInfo(data['image-link'])
+const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (userData) => {
+  api.editAvatar(userData)
+    .then((res) => {
+      console.log('res :>> ', res);
+      userInfo.setUserInfo({avatar: userData.avatar})
     })
 });
 
