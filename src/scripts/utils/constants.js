@@ -3,9 +3,9 @@ export const settings = {
   submitButtonSelector: ".popup__save",
 };
 
-export const editForm = document.querySelector(".popup_type_edit");
+export const editForm = document.querySelector(".popup_type_edit-profile");
 export const addCardForm = document.querySelector(".popup_type_add-card");
-
+export const editAvatarForm = document.querySelector(".popup_type_edit-avatar");
 export const initialCards = [
   {
     name: "Yosemite Valley",
@@ -40,7 +40,7 @@ export const list = document.querySelector(".card-list");
 export const cards = document.querySelectorAll(".card");
 
 // modals
-export const editModal = document.querySelector(".popup_type_edit");
+export const editModal = document.querySelector(".popup_type_edit-profile");
 export const addCardModal = document.querySelector(".popup_type_add-card");
 export const imageModal = document.querySelector(".popup_type_image");
 export const openedModal = document.querySelector(".popup_opened");
@@ -54,7 +54,7 @@ export const imageModalCloseButton = imageModal.querySelector(".popup__close");
 // open modal buttons
 export const editProfileButton = document.querySelector(".edit-button");
 export const addCardButton = document.querySelector(".add-button");
-// export const removeCardButton = document.querySelector()
+export const editAvatarButton = document.querySelector(".avatar");
 
 // inputs
 export const profileNameInput = editModal.querySelector(
@@ -89,7 +89,7 @@ export const listTemplateSelector = ".card-list";
 
 export const profileNameSelector = ".name-input";
 export const profileProfessionSelector = ".profession-input";
-export const profileSelector = ".popup_type_edit";
+export const profileSelector = ".popup_type_edit-profile";
 
 export const userNameValue = ".edit-name";
 export const userProfessionValue = ".profile-info__profession";

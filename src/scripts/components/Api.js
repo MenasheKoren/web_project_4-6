@@ -25,6 +25,14 @@ class Api {
     });
   }
 
+  editAvatar(data) {
+    return customFetch(`${this._baseUrl}/users/me/avatar`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify(data)
+    });
+  }
+
   createCard(data) {
     return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
