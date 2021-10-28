@@ -46,6 +46,10 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 confirmPopup.setEventListeners();
 
+// editProfileButton.addEventListener("click", () => {
+//   profilePopup.open();
+// });
+
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
   profileNameInput.value = currentUserInfo.userName;
@@ -69,7 +73,10 @@ addCardModalNew.setEventListeners();
 const userInfo = new UserInfo(userNameValue, userProfessionValue);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  userInfo.setUserInfo(data);
+  api.editUserInfo({ name: data.name, about: data.profession }).then(() => {
+    console.log('data :>> ', data);
+    userInfo.setUserInfo({ name: data.name, profession: data.profession });
+  });
   profilePopup.close();
 });
 

@@ -17,6 +17,14 @@ class Api {
     });
   }
 
+  editUserInfo(data) {
+    return customFetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify(data)
+    });
+  }
+
   createCard(data) {
     return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
