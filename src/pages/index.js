@@ -89,13 +89,13 @@ confirmPopup.setEventListeners();
 const userInfo = new UserInfo(userNameValue, userProfessionValue, avatarSelector);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  console.log('data :>> ', data);
-  api.editUserInfo({ name: data.name, about: data.about}).then((res) => {
-    console.log('res :>> ', res);
-    userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
+    console.log('data :>> ', data);
+    api.editUserInfo({ name: data.name, about: data.profession}).then((res) => {
+      console.log('res :>> ', res);
+      userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
+    });
+    profilePopup.close();
   });
-  profilePopup.close();
-});
 
 profilePopup.setEventListeners();
 
