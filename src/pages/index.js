@@ -13,7 +13,8 @@ import {
   profileNameInput,
   profileProfessionInput,
   editAvatarButton,
-  userAvatarValue
+  userAvatarValue,
+  avatarSelector
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
@@ -31,7 +32,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
   ([cardData, userData]) => {
     userId = userData._id;
     cardList.renderer(cardData);
-    userInfo.setUserInfo({ name: userData.name, profession: userData.about, avatar: userData.avatar });
+    userInfo.setUserInfo({ name: userData.name, about: userData.about, avatar: userData.avatar });
   }
 );
 
@@ -51,12 +52,11 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
 const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (userData) => {
-  api.editAvatar(userData['image-link'])
-    .then((res) => {
-      console.log('res :>> ', res);
-      userInfo.setUserInfo(userData['image-link'])
-    })
-});
+    api.editAvatar(userData['image-link'])
+      .then((res) => {
+        userInfo.setUserInfo(res)
+      })
+  });
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
@@ -86,11 +86,13 @@ addCardModalNew.setEventListeners();
 updateAvatar.setEventListeners();
 confirmPopup.setEventListeners();
 
-const userInfo = new UserInfo(userNameValue, userProfessionValue, userAvatarValue);
+const userInfo = new UserInfo(userNameValue, userProfessionValue, avatarSelector);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  api.editUserInfo({ name: data.name, about: data.profession }).then(() => {
-    userInfo.setUserInfo({ name: data.name, profession: data.profession });
+  console.log('data :>> ', data);
+  api.editUserInfo({ name: data.name, about: data.about}).then((res) => {
+    console.log('res :>> ', res);
+    userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
   });
   profilePopup.close();
 });
