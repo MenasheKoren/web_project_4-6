@@ -13,8 +13,7 @@ import {
   profileNameInput,
   profileProfessionInput,
   editAvatarButton,
-  userAvatarValue,
-  avatarSelector
+  avatarSelector,
 } from "../scripts/utils/constants";
 import { generateCard } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
@@ -24,7 +23,6 @@ import { PopupWithImage } from "../scripts/components/PopupWithImage";
 import { UserInfo } from "../scripts/components/UserInfo";
 import { api } from "../scripts/components/Api";
 import { PopupWithSubmit } from "../scripts/components/PopupWithSubmit";
-import { PopupWithAvatar } from "../scripts/components/PopupWithAvatar";
 
 export let userId;
 
@@ -32,7 +30,11 @@ Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
   ([cardData, userData]) => {
     userId = userData._id;
     cardList.renderer(cardData);
-    userInfo.setUserInfo({ name: userData.name, about: userData.about, avatar: userData.avatar });
+    userInfo.setUserInfo({
+      name: userData.name,
+      about: userData.about,
+      avatar: userData.avatar,
+    });
   }
 );
 
@@ -51,12 +53,14 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
-const updateAvatar = new PopupWithForm(".popup_type_edit-avatar", (userData) => {
-    api.editAvatar(userData['image-link'])
-      .then((res) => {
-        userInfo.setUserInfo(res)
-      })
-  });
+const updateAvatar = new PopupWithForm(
+  ".popup_type_edit-avatar",
+  (userData) => {
+    api.editAvatar(userData["image-link"]).then((res) => {
+      userInfo.setUserInfo(res);
+    });
+  }
+);
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
@@ -86,16 +90,24 @@ addCardModalNew.setEventListeners();
 updateAvatar.setEventListeners();
 confirmPopup.setEventListeners();
 
-const userInfo = new UserInfo(userNameValue, userProfessionValue, avatarSelector);
+const userInfo = new UserInfo(
+  userNameValue,
+  userProfessionValue,
+  avatarSelector
+);
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-    console.log('data :>> ', data);
-    api.editUserInfo({ name: data.name, about: data.profession}).then((res) => {
-      console.log('res :>> ', res);
-      userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
-    });
-    profilePopup.close();
+  console.log("data :>> ", data);
+  api.editUserInfo({ name: data.name, about: data.profession }).then((res) => {
+    console.log("res :>> ", res);
+    userInfo.setUserInfo({
+      name: res.name,
+      about: res.about,
+      avatar: res.avatar,
+    });
   });
+  profilePopup.close();
+});
 
 profilePopup.setEventListeners();
 
