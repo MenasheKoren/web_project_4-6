@@ -97,9 +97,7 @@ const userInfo = new UserInfo(
 );
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  console.log("data :>> ", data);
   api.editUserInfo({ name: data.name, about: data.profession }).then((res) => {
-    console.log("res :>> ", res);
     userInfo.setUserInfo({
       name: res.name,
       about: res.about,

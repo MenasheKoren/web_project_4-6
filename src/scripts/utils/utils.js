@@ -43,3 +43,7 @@ export const customFetch = (url, headers) =>
   fetch(url, headers)
     .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
     .catch(console.log);
+
+export function savingMessage(params) {
+  console.log('1234');
+}
