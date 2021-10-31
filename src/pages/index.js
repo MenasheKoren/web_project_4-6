@@ -15,7 +15,7 @@ import {
   editAvatarButton,
   avatarSelector,
 } from "../scripts/utils/constants";
-import { generateCard } from "../scripts/utils/utils";
+import { generateCard, updateProcessingMessage } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
 import { PopupWithForm } from "../scripts/components/PopupWithForm";
 import { FormValidator } from "../scripts/components/FormValidator";
@@ -44,15 +44,13 @@ const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
-  const button = document.querySelector(".popup_opened .popup__save");
-  const initialTextHolder = button.textContent.toString();
-  button.textContent = "Saving...";
-  api
+  updateProcessingMessage()
+    api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
       cardList.addItem(generateCard(data));
     })
-    .finally((button.textContent = initialTextHolder));
+    // .finally((button.textContent = initialTextHolder));
 });
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
@@ -60,15 +58,13 @@ export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 const updateAvatar = new PopupWithForm(
   ".popup_type_edit-avatar",
   (userData) => {
-    const button = document.querySelector(".popup_opened .popup__save");
-    const initialTextHolder = button.textContent.toString();
-    button.textContent = "Saving...";
+    updateProcessingMessage()
     api
       .editAvatar(userData["image-link"])
       .then((res) => {
         userInfo.setUserInfo(res);
       })
-      .finally((button.textContent = initialTextHolder));
+      // .finally((button.textContent = initialTextHolder));
   }
 );
 
@@ -107,9 +103,7 @@ const userInfo = new UserInfo(
 );
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  const button = document.querySelector(".popup_opened .popup__save");
-  const initialTextHolder = button.textContent.toString();
-  button.textContent = "Saving...";
+  updateProcessingMessage()
   api.editUserInfo({ name: data.name, about: data.profession }).then((res) => {
     userInfo
       .setUserInfo({
@@ -117,7 +111,7 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
         about: res.about,
         avatar: res.avatar,
       })
-      .finally((button.textContent = initialTextHolder));
+      // .finally((button.textContent = initialTextHolder));
   });
   profilePopup.close();
 });
