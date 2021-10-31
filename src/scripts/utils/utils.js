@@ -27,14 +27,14 @@ export function generateCard(data) {
       confirmPopup.open();
 
       confirmPopup.setAction(() => {
-        updateProcessingMessage()
+        updateProcessingMessage("Deleting...");
         api
           .deleteCard(id)
           .then((res) => {
             cardElement.removeCard();
             confirmPopup.close();
           })
-          // .finally((button.textContent = initialTextHolder));
+          .finally(updateProcessingMessage("Yes"));
       });
     },
     userId
@@ -48,10 +48,8 @@ export const customFetch = (url, headers) =>
     .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
     .catch(console.log);
 
-export function updateProcessingMessage(params) {
+// let initialTextHolder;
+export function updateProcessingMessage(message) {
   const button = document.querySelector(".popup_opened .popup__save");
-  const initialTextHolder = button.textContent.toString();
-
-  button.textContent = "Updating..."
-  // .finally((button.textContent = initialTextHolder));
+  button.textContent = message;
 }

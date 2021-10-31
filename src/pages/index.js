@@ -44,13 +44,13 @@ const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
-  updateProcessingMessage()
-    api
+  updateProcessingMessage("Saving...");
+  api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
       cardList.addItem(generateCard(data));
     })
-    // .finally((button.textContent = initialTextHolder));
+    .finally(updateProcessingMessage("Create"));
 });
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
@@ -58,13 +58,13 @@ export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 const updateAvatar = new PopupWithForm(
   ".popup_type_edit-avatar",
   (userData) => {
-    updateProcessingMessage()
+    updateProcessingMessage("Saving...");
     api
       .editAvatar(userData["image-link"])
       .then((res) => {
         userInfo.setUserInfo(res);
       })
-      // .finally((button.textContent = initialTextHolder));
+      .finally(updateProcessingMessage("Save"));
   }
 );
 
@@ -103,16 +103,17 @@ const userInfo = new UserInfo(
 );
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  updateProcessingMessage()
-  api.editUserInfo({ name: data.name, about: data.profession }).then((res) => {
-    userInfo
-      .setUserInfo({
+  updateProcessingMessage("Saving...");
+  api
+    .editUserInfo({ name: data.name, about: data.profession })
+    .then((res) => {
+      userInfo.setUserInfo({
         name: res.name,
         about: res.about,
         avatar: res.avatar,
-      })
-      // .finally((button.textContent = initialTextHolder));
-  });
+      });
+    })
+    .finally(updateProcessingMessage("Save"));
   profilePopup.close();
 });
 
