@@ -27,10 +27,16 @@ export function generateCard(data) {
       confirmPopup.open();
 
       confirmPopup.setAction(() => {
-        api.deleteCard(id).then((res) => {
-          cardElement.removeCard();
-          confirmPopup.close();
-        });
+        const button = document.querySelector(".popup__save");
+        const initialTextHolder = button.textContent.toString();
+        button.textContent = "Deleting...";
+        api
+          .deleteCard(id)
+          .then((res) => {
+            cardElement.removeCard();
+            confirmPopup.close();
+          })
+          .finally((button.textContent = initialTextHolder));
       });
     },
     userId
@@ -43,7 +49,3 @@ export const customFetch = (url, headers) =>
   fetch(url, headers)
     .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
     .catch(console.log);
-
-export function savingMessage(params) {
-  console.log('1234');
-}

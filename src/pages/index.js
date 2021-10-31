@@ -44,11 +44,15 @@ const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
 export const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
+  const button = document.querySelector(".popup_opened .popup__save");
+  const initialTextHolder = button.textContent.toString();
+  button.textContent = "Saving...";
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
       cardList.addItem(generateCard(data));
-    });
+    })
+    .finally((button.textContent = initialTextHolder));
 });
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
@@ -56,9 +60,15 @@ export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 const updateAvatar = new PopupWithForm(
   ".popup_type_edit-avatar",
   (userData) => {
-    api.editAvatar(userData["image-link"]).then((res) => {
-      userInfo.setUserInfo(res);
-    });
+    const button = document.querySelector(".popup_opened .popup__save");
+    const initialTextHolder = button.textContent.toString();
+    button.textContent = "Saving...";
+    api
+      .editAvatar(userData["image-link"])
+      .then((res) => {
+        userInfo.setUserInfo(res);
+      })
+      .finally((button.textContent = initialTextHolder));
   }
 );
 
@@ -97,12 +107,17 @@ const userInfo = new UserInfo(
 );
 
 const profilePopup = new PopupWithForm(profileSelector, (data) => {
+  const button = document.querySelector(".popup_opened .popup__save");
+  const initialTextHolder = button.textContent.toString();
+  button.textContent = "Saving...";
   api.editUserInfo({ name: data.name, about: data.profession }).then((res) => {
-    userInfo.setUserInfo({
-      name: res.name,
-      about: res.about,
-      avatar: res.avatar,
-    });
+    userInfo
+      .setUserInfo({
+        name: res.name,
+        about: res.about,
+        avatar: res.avatar,
+      })
+      .finally((button.textContent = initialTextHolder));
   });
   profilePopup.close();
 });
