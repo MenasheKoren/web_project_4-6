@@ -1,0 +1,15 @@
+.avatar__edit-icon {
+  visibility: hidden;
+  width: 1.625rem;
+  height: 1.625rem;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatar__edit-icon:hover {
+  visibility: visible;
+  cursor: pointer;
+}

@@ -91,7 +91,7 @@ export const profileNameSelector = ".name-input";
 export const profileProfessionSelector = ".profession-input";
 export const profileSelector = ".popup_type_edit-profile";
 export const userAvatarValue = ".image-link";
-export const avatarSelector = ".avatar";
+export const avatarSelector = ".avatar__image";
 export const userNameValue = ".edit-name";
 export const userProfessionValue = ".profile-info__profession";
 

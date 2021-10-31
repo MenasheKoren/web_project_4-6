@@ -1,18 +1,11 @@
 .avatar {
-  -o-object-position: top;
+  /* -o-object-position: top;
   object-position: top;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: cover; */
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 100%;
+  position: relative;
 }
 
-.avatar:hover {
-  cursor: pointer;
-  opacity: 20%;
-  background: url(../../images/edit.svg) no-repeat center;
-  background-size: 1.625rem;
-  width: 7.5rem;
-  height: 7.5rem;
-}
