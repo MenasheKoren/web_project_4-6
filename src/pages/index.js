@@ -50,7 +50,7 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     .then((data) => {
       cardList.addItem(generateCard(data));
     })
-    .finally(updateProcessingMessage("Create"));
+    .finally(() => updateProcessingMessage("Create"));
 });
 
 export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
@@ -64,7 +64,7 @@ const updateAvatar = new PopupWithForm(
       .then((res) => {
         userInfo.setUserInfo(res);
       })
-      .finally(updateProcessingMessage("Save"));
+      .finally(() => updateProcessingMessage("Save"));
   }
 );
 
@@ -113,7 +113,7 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
         avatar: res.avatar,
       });
     })
-    .finally(updateProcessingMessage("Save"));
+    .finally(() => updateProcessingMessage("Save"));
   profilePopup.close();
 });
 

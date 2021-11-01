@@ -34,7 +34,7 @@ export function generateCard(data) {
             cardElement.removeCard();
             confirmPopup.close();
           })
-          .finally(updateProcessingMessage("Yes"));
+          .finally(() => updateProcessingMessage("Yes"));
       });
     },
     userId
