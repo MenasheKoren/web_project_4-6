@@ -1,4 +1,5 @@
 import { customFetch } from "../utils/utils";
+
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -50,14 +51,14 @@ class Api {
     });
   }
 
-  likeCard(cardId) {
+  addLikes(cardId) {
     return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       headers: this._headers,
       method: "PUT",
     });
   }
 
-  unlikeCard(cardId) {
+  removeLikes(cardId) {
     return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       headers: this._headers,
       method: "DELETE",

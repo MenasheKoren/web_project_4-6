@@ -29,7 +29,7 @@ export class Card {
     return this._likes.some((person) => person._id === this._userId);
   }
 
-  likeCard(newLikes) {
+  addLikes(newLikes) {
     this._likes = newLikes;
     this._cardElement.querySelector(".card__likes-count").textContent =
       this._likes.length;
@@ -79,7 +79,7 @@ export class Card {
       this._likes.length;
 
     if (this.isLiked()) {
-      this.likeCard(this._likes);
+      this.addLikes(this._likes);
     }
 
     this._setEventListeners();

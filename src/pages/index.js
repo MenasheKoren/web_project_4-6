@@ -14,8 +14,9 @@ import {
   profileProfessionInput,
   editAvatarButton,
   avatarSelector,
+  cardTemplateSelector,
 } from "../scripts/utils/constants";
-import { generateCard, updateProcessingMessage } from "../scripts/utils/utils";
+import { updateProcessingMessage } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
 import { PopupWithForm } from "../scripts/components/PopupWithForm";
 import { FormValidator } from "../scripts/components/FormValidator";
@@ -23,6 +24,7 @@ import { PopupWithImage } from "../scripts/components/PopupWithImage";
 import { UserInfo } from "../scripts/components/UserInfo";
 import { api } from "../scripts/components/Api";
 import { PopupWithSubmit } from "../scripts/components/PopupWithSubmit";
+import { Card } from "../scripts/components/Card";
 
 export let userId;
 
@@ -42,7 +44,7 @@ const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
-export const imageModalNew = new PopupWithImage(".popup_type_image");
+const imageModalNew = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   updateProcessingMessage("Saving...");
   api
@@ -53,7 +55,7 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     .finally(() => updateProcessingMessage("Create"));
 });
 
-export const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
+const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
 
 const updateAvatar = new PopupWithForm(
   ".popup_type_edit-avatar",
@@ -118,6 +120,46 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
 });
 
 profilePopup.setEventListeners();
+
+function generateCard(data) {
+  const cardElement = new Card(
+    data,
+    cardTemplateSelector,
+    () => {
+      imageModalNew.open(data.link, data.name);
+    },
+    (id) => {
+      const isAlreadyLiked = cardElement.isLiked();
+
+      if (isAlreadyLiked) {
+        api.removeLikes(id).then((res) => {
+          cardElement.addLikes(res.likes);
+        });
+      } else {
+        api.addLikes(id).then((res) => {
+          cardElement.addLikes(res.likes);
+        });
+      }
+    },
+    (id) => {
+      confirmPopup.open();
+
+      confirmPopup.setAction(() => {
+        updateProcessingMessage("Deleting...");
+        api
+          .deleteCard(id)
+          .then((res) => {
+            cardElement.removeCard();
+            confirmPopup.close();
+          })
+          .finally(() => updateProcessingMessage("Yes"));
+      });
+    },
+    userId
+  );
+
+  return cardElement.createCardElement();
+}
 
 const cardList = new Section(
   {
