@@ -4,14 +4,14 @@ export class UserInfo {
     this._userProfessionElement = document.querySelector(
       userProfessionSelector
     );
-    this._avatarSelectorElement = document.querySelector(avatarSelector)
+    this._avatarSelectorElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
     return {
       userName: this._userNameElement.textContent,
       userProfession: this._userProfessionElement.textContent,
-      userAvatar: this._avatarSelectorElement.src
+      userAvatar: this._avatarSelectorElement.src,
     };
   }
 

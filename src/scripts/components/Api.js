@@ -21,7 +21,7 @@ class Api {
     return customFetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "PATCH",
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
   }
 
@@ -30,8 +30,8 @@ class Api {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify({
-        avatar: (data)
-      })
+        avatar: data,
+      }),
     });
   }
 

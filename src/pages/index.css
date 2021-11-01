@@ -26,7 +26,6 @@
 @import url(../blocks/profile-info/__profession/profile-info__profession.css);
 @import url(../blocks/add-button/add-button.css);
 
-
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -56,4 +55,3 @@
 @import url(../blocks/button/_filled/button_filled.css);
 
 @import url(../blocks/footer/footer.css);
-
