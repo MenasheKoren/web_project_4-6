@@ -14,7 +14,6 @@
 }
 
 .avatar__edit-icon:hover {
-  visibility: visible;
   background-color: rgba(0, 0, 0, .8);
   opacity: 1;
 }
