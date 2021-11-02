@@ -5,5 +5,7 @@ export const customFetch = (url, headers) =>
 
 export function updateProcessingMessage(message) {
   const button = document.querySelector(".popup_opened .popup__save");
-  button.textContent = message;
+  if(button){
+    button.textContent = message;
+  }
 }

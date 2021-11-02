@@ -52,6 +52,10 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     .then((data) => {
       cardList.addItem(generateCard(data));
     })
+    .catch((err) => {
+      console.log("err in then above");
+    })
+    .then(addCardModalNew.close())
     .finally(() => updateProcessingMessage("Create"));
 });
 
@@ -66,6 +70,10 @@ const updateAvatar = new PopupWithForm(
       .then((res) => {
         userInfo.setUserInfo(res);
       })
+      .catch((err) => {
+        console.log("err in then above");
+      })
+      .then(updateAvatar.close())
       .finally(() => updateProcessingMessage("Save"));
   }
 );
@@ -115,8 +123,11 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
         avatar: res.avatar,
       });
     })
+    .catch((err) => {
+      console.log("err in then above");
+    })
+    .then(profilePopup.close())
     .finally(() => updateProcessingMessage("Save"));
-  profilePopup.close();
 });
 
 profilePopup.setEventListeners();
@@ -130,7 +141,7 @@ function generateCard(data) {
     },
     (id) => {
       const isAlreadyLiked = cardElement.isLiked();
-
+      debugger
       if (isAlreadyLiked) {
         api.removeLikes(id).then((res) => {
           cardElement.addLikes(res.likes);
@@ -150,9 +161,11 @@ function generateCard(data) {
           .deleteCard(id)
           .then((res) => {
             cardElement.removeCard();
-            confirmPopup.close();
           })
-          .finally(() => updateProcessingMessage("Yes"));
+          .catch((err) => {
+            console.log("err in then above");
+          })
+          .finally(() => updateProcessingMessage("Yes"), confirmPopup.close());
       });
     },
     userId

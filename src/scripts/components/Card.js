@@ -29,17 +29,40 @@ export class Card {
     return this._likes.some((person) => person._id === this._userId);
   }
 
-  addLikes(newLikes) {
+  _renderLikes(newLikes) {
+    debugger
     this._likes = newLikes;
+    debugger
     this._cardElement.querySelector(".card__likes-count").textContent =
       this._likes.length;
+    if (this.isLiked()) {
+      this._cardElement
+        .querySelector(".card__like")
+        .classList.toggle("button_filled");
+      this._cardElement
+        .querySelector(".card__like")
+        .classList.toggle("button_empty");
+    }
+    // this._cardElement
+    //   .querySelector(".card__like")
+    //   .classList.toggle("button_filled");
+    // this._cardElement
+    //   .querySelector(".card__like")
+    //   .classList.toggle("button_empty");
+  }
 
-    this._cardElement
-      .querySelector(".card__like")
-      .classList.toggle("button_filled");
-    this._cardElement
-      .querySelector(".card__like")
-      .classList.toggle("button_empty");
+  addLikes() {
+    this._renderLikes();
+    // this._likes = newLikes;
+    // this._cardElement.querySelector(".card__likes-count").textContent =
+    //   this._likes.length;
+
+    // this._cardElement
+    //   .querySelector(".card__like")
+    //   .classList.toggle("button_filled");
+    // this._cardElement
+    //   .querySelector(".card__like")
+    //   .classList.toggle("button_empty");
   }
 
   removeCard() {
@@ -75,12 +98,7 @@ export class Card {
       this._cardElement.querySelector(".card__remove").style.display = "none";
     }
 
-    this._cardElement.querySelector(".card__likes-count").textContent =
-      this._likes.length;
-
-    if (this.isLiked()) {
-      this.addLikes(this._likes);
-    }
+    this._renderLikes();
 
     this._setEventListeners();
 
