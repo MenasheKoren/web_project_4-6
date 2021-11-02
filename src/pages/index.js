@@ -141,7 +141,6 @@ function generateCard(data) {
     },
     (id) => {
       const isAlreadyLiked = cardElement.isLiked();
-      debugger
       if (isAlreadyLiked) {
         api.removeLikes(id).then((res) => {
           cardElement.addLikes(res.likes);
