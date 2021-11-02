@@ -28,8 +28,8 @@ import { Card } from "../scripts/components/Card";
 
 export let userId;
 
-Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
-  ([cardData, userData]) => {
+Promise.all([api.getInitialCards(), api.getUserInfo()])
+  .then(([cardData, userData]) => {
     userId = userData._id;
     cardList.renderer(cardData);
     userInfo.setUserInfo({
@@ -37,14 +37,14 @@ Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
       about: userData.about,
       avatar: userData.avatar,
     });
-  }
-);
+  })
+  .catch((err) => console.log(`Error.....: ${err}`));
 
 const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
-const imageModalNew = new PopupWithImage(".popup_type_image");
+const imageModal = new PopupWithImage(".popup_type_image");
 const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   updateProcessingMessage("Saving...");
   api
@@ -53,7 +53,7 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
       cardList.addItem(generateCard(data));
     })
     .catch((err) => {
-      console.log("err in then above");
+      console.log(`Error.....: ${err}`);
     })
     .then(() => {
       updateProcessingMessage("Create"), addCardModalNew.close();
@@ -72,9 +72,9 @@ const updateAvatar = new PopupWithForm(
         userInfo.setUserInfo(res);
       })
       .catch((err) => {
-        console.log("err in then above");
+        console.log(`Error.....: ${err}`);
       })
-      .then(() => {
+      .finally(() => {
         updateProcessingMessage("Save"), updateAvatar.close();
       });
   }
@@ -103,7 +103,7 @@ editFormValidator.resetValidation();
 addCardFormValidator.resetValidation();
 editAvatarFormValidator.resetValidation();
 
-imageModalNew.setEventListeners();
+imageModal.setEventListeners();
 addCardModalNew.setEventListeners();
 updateAvatar.setEventListeners();
 confirmPopup.setEventListeners();
@@ -126,9 +126,9 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
       });
     })
     .catch((err) => {
-      console.log("err in then above");
+      console.log(`Error.....: ${err}`);
     })
-    .then(() => {
+    .finally(() => {
       updateProcessingMessage("Save"), profilePopup.close();
     });
 });
@@ -140,18 +140,24 @@ function generateCard(data) {
     data,
     cardTemplateSelector,
     () => {
-      imageModalNew.open(data.link, data.name);
+      imageModal.open(data.link, data.name);
     },
     (id) => {
       const isAlreadyLiked = cardElement.isLiked();
       if (isAlreadyLiked) {
-        api.removeLikes(id).then((res) => {
-          cardElement.addLikes(res.likes);
-        });
+        api
+          .removeLikes(id)
+          .then((res) => {
+            cardElement.addLikes(res.likes);
+          })
+          .catch((err) => console.log(`Error.....: ${err}`));
       } else {
-        api.addLikes(id).then((res) => {
-          cardElement.addLikes(res.likes);
-        });
+        api
+          .addLikes(id)
+          .then((res) => {
+            cardElement.addLikes(res.likes);
+          })
+          .catch((err) => console.log(`Error.....: ${err}`));
       }
     },
     (id) => {
@@ -165,9 +171,9 @@ function generateCard(data) {
             cardElement.removeCard();
           })
           .catch((err) => {
-            console.log("err in then above");
+            console.log(`Error.....: ${err}`);
           })
-          .then(() => {
+          .finally(() => {
             updateProcessingMessage("Yes"), confirmPopup.close();
           });
       });
