@@ -55,8 +55,9 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     .catch((err) => {
       console.log("err in then above");
     })
-    .then(addCardModalNew.close())
-    .finally(() => updateProcessingMessage("Create"));
+    .then(() => {
+      updateProcessingMessage("Create"), addCardModalNew.close();
+    });
 });
 
 const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
@@ -73,8 +74,9 @@ const updateAvatar = new PopupWithForm(
       .catch((err) => {
         console.log("err in then above");
       })
-      .then(updateAvatar.close())
-      .finally(() => updateProcessingMessage("Save"));
+      .then(() => {
+        updateProcessingMessage("Save"), updateAvatar.close();
+      });
   }
 );
 
@@ -126,8 +128,9 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
     .catch((err) => {
       console.log("err in then above");
     })
-    .then(profilePopup.close())
-    .finally(() => updateProcessingMessage("Save"));
+    .then(() => {
+      updateProcessingMessage("Save"), profilePopup.close();
+    });
 });
 
 profilePopup.setEventListeners();
@@ -164,7 +167,9 @@ function generateCard(data) {
           .catch((err) => {
             console.log("err in then above");
           })
-          .finally(() => updateProcessingMessage("Yes"), confirmPopup.close());
+          .then(() => {
+            updateProcessingMessage("Yes"), confirmPopup.close();
+          });
       });
     },
     userId
