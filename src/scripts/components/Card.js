@@ -32,26 +32,20 @@ export class Card {
   _renderLikes() {
     this._cardElement.querySelector(".card__likes-count").textContent =
       this._likes.length;
-    // if (this.isLiked()) { // ! Bug: filling icon doesn't match adding/removing likes
-    // this._cardElement
-    //   .querySelector(".card__like")
-    //   .classList.toggle("button_filled");
-    // this._cardElement
-    //   .querySelector(".card__like")
-    //   .classList.toggle("button_empty");
-    // }
+    if (this.isLiked()) {
+      this._cardElement
+        .querySelector(".card__like")
+        .classList.add("button_filled");
+    } else {
+      this._cardElement
+        .querySelector(".card__like")
+        .classList.remove("button_filled");
+    }
   }
 
   addLikes(newLikes) {
     this._likes = newLikes;
     this._renderLikes();
-    // ? Should the icon behavior be here
-    this._cardElement
-      .querySelector(".card__like")
-      .classList.toggle("button_filled");
-    this._cardElement
-      .querySelector(".card__like")
-      .classList.toggle("button_empty");
   }
 
   removeCard() {
