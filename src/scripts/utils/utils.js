@@ -5,7 +5,7 @@ export const customFetch = (url, headers) =>
 
 export function updateProcessingMessage(message) {
   const button = document.querySelector(".popup_opened .popup__save");
-  if(button){
+  if (button) { // TODO Fix bug so it will reset each time
     button.textContent = message;
   }
 }
