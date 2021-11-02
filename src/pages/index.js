@@ -55,7 +55,7 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     .catch((err) => {
       console.log(`Error.....: ${err}`);
     })
-    .then(() => {
+    .finally(() => {
       updateProcessingMessage("Create"), addCardModalNew.close();
     });
 });
