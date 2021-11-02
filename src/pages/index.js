@@ -50,13 +50,13 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
-      cardList.addItem(generateCard(data));
+      cardList.addItem(generateCard(data)), addCardModalNew.close();
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
     })
     .finally(() => {
-      updateProcessingMessage("Create"), addCardModalNew.close();
+      updateProcessingMessage("Create");
     });
 });
 
@@ -69,13 +69,13 @@ const updateAvatar = new PopupWithForm(
     api
       .editAvatar(userData["image-link"])
       .then((res) => {
-        userInfo.setUserInfo(res);
+        userInfo.setUserInfo(res), updateAvatar.close();
       })
       .catch((err) => {
         console.log(`Error.....: ${err}`);
       })
       .finally(() => {
-        updateProcessingMessage("Save"), updateAvatar.close();
+        updateProcessingMessage("Save");
       });
   }
 );
@@ -123,13 +123,14 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
         name: res.name,
         about: res.about,
         avatar: res.avatar,
-      });
+      }),
+        profilePopup.close();
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
     })
     .finally(() => {
-      updateProcessingMessage("Save"), profilePopup.close();
+      updateProcessingMessage("Save");
     });
 });
 
@@ -168,13 +169,13 @@ function generateCard(data) {
         api
           .deleteCard(id)
           .then((res) => {
-            cardElement.removeCard();
+            cardElement.removeCard(), confirmPopup.close();
           })
           .catch((err) => {
             console.log(`Error.....: ${err}`);
           })
           .finally(() => {
-            updateProcessingMessage("Yes"), confirmPopup.close();
+            updateProcessingMessage("Yes");
           });
       });
     },
