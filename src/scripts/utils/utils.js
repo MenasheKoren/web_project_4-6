@@ -6,8 +6,10 @@ export const customFetch = (url, headers) =>
   );
 
 export function updateProcessingMessage(message, popupTypeSelector) {
-const submitButton = document.querySelector(`${popupTypeSelector} .popup__save`);
-if (submitButton) {
+  const submitButton = document.querySelector(
+    `${popupTypeSelector} .popup__save`
+  );
+  if (submitButton) {
     submitButton.textContent = message;
   }
 }

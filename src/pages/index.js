@@ -1,7 +1,6 @@
 import "../pages/index.css";
 import {
   listTemplateSelector,
-  profileSelector,
   settings,
   editForm,
   addCardForm,
