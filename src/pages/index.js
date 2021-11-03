@@ -50,13 +50,14 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
-      cardList.addItem(generateCard(data)), addCardModalNew.close();
+      cardList.addItem(generateCard(data));
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
     })
+    .then(addCardModalNew.close())
     .finally(() => {
-      updateProcessingMessage("Create");
+      updateProcessingMessage("Create", ".popup_type_add-card");
     });
 });
 

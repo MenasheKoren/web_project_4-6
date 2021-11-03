@@ -56,9 +56,6 @@ export const editProfileButton = document.querySelector(".edit-button");
 export const addCardButton = document.querySelector(".add-button");
 export const editAvatarButton = document.querySelector(".avatar");
 
-// submit buttons
-export const submitButton = document.querySelector('.popup__save')
-
 // inputs
 export const profileNameInput = editModal.querySelector(
   ".field-input_type_name"

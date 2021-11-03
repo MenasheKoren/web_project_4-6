@@ -5,10 +5,9 @@ export const customFetch = (url, headers) =>
     res.ok ? res.json() : Promise.reject(res.statusText)
   );
 
-export function updateProcessingMessage(message) {
-  if (submitButton && openedModal) {
-    submitButton.textContent = message;
-  } else {
+export function updateProcessingMessage(message, popupTypeSelector) {
+const submitButton = document.querySelector(`${popupTypeSelector} .popup__save`);
+if (submitButton) {
     submitButton.textContent = message;
   }
 }
