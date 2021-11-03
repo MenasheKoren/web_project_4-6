@@ -15,6 +15,11 @@ import {
   editAvatarButton,
   avatarSelector,
   cardTemplateSelector,
+  imagePopupSelector,
+  addCardPopupSelector,
+  confirmPopupSelector,
+  avatarPopupSelector,
+  profilePopupSelector,
 } from "../scripts/utils/constants";
 import { updateProcessingMessage } from "../scripts/utils/utils";
 import { Section } from "../scripts/components/Section";
@@ -44,9 +49,9 @@ const editFormValidator = new FormValidator(settings, editForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
 
-const imageModal = new PopupWithImage(".popup_type_image");
-const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
-  updateProcessingMessage("Saving...");
+const imageModal = new PopupWithImage(imagePopupSelector);
+const addCardModalNew = new PopupWithForm(addCardPopupSelector, (data) => {
+  updateProcessingMessage("Saving...", addCardPopupSelector);
   api
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
@@ -57,26 +62,26 @@ const addCardModalNew = new PopupWithForm(".popup_type_add-card", (data) => {
     })
     .then(addCardModalNew.close())
     .finally(() => {
-      updateProcessingMessage("Create", ".popup_type_add-card");
+      updateProcessingMessage("Create", addCardPopupSelector);
     });
 });
 
-const confirmPopup = new PopupWithSubmit(".popup_type_remove-card");
+const confirmPopup = new PopupWithSubmit(confirmPopupSelector);
 
 const updateAvatar = new PopupWithForm(
-  ".popup_type_edit-avatar",
+  avatarPopupSelector,
   (userData) => {
-    updateProcessingMessage("Saving...");
+    updateProcessingMessage("Saving...", avatarPopupSelector);
     api
       .editAvatar(userData["image-link"])
       .then((res) => {
-        userInfo.setUserInfo(res), updateAvatar.close();
+        userInfo.setUserInfo(res);
       })
       .catch((err) => {
         console.log(`Error.....: ${err}`);
-      })
+      }).then(updateAvatar.close())
       .finally(() => {
-        updateProcessingMessage("Save");
+        updateProcessingMessage("Save", avatarPopupSelector);
       });
   }
 );
@@ -115,8 +120,8 @@ const userInfo = new UserInfo(
   avatarSelector
 );
 
-const profilePopup = new PopupWithForm(profileSelector, (data) => {
-  updateProcessingMessage("Saving...");
+const profilePopup = new PopupWithForm(profilePopupSelector, (data) => {
+  updateProcessingMessage("Saving...", profilePopupSelector);
   api
     .editUserInfo({ name: data.name, about: data.profession })
     .then((res) => {
@@ -124,14 +129,14 @@ const profilePopup = new PopupWithForm(profileSelector, (data) => {
         name: res.name,
         about: res.about,
         avatar: res.avatar,
-      }),
-        profilePopup.close();
+      })
+        ;
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
-    })
+    }).then(profilePopup.close())
     .finally(() => {
-      updateProcessingMessage("Save");
+      updateProcessingMessage("Save", profilePopupSelector);
     });
 });
 
@@ -166,17 +171,17 @@ function generateCard(data) {
       confirmPopup.open();
 
       confirmPopup.setAction(() => {
-        updateProcessingMessage("Deleting...");
+        updateProcessingMessage("Deleting...", confirmPopupSelector);
         api
           .deleteCard(id)
           .then((res) => {
-            cardElement.removeCard(), confirmPopup.close();
+            cardElement.removeCard();
           })
           .catch((err) => {
             console.log(`Error.....: ${err}`);
-          })
+          }).then(confirmPopup.close())
           .finally(() => {
-            updateProcessingMessage("Yes");
+            updateProcessingMessage("Yes", confirmPopupSelector);
           });
       });
     },
