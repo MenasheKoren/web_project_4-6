@@ -56,11 +56,11 @@ const addCardModalNew = new PopupWithForm(addCardPopupSelector, (data) => {
     .createCard({ name: data["card-title"], link: data["card-link"] })
     .then((data) => {
       cardList.addItem(generateCard(data));
+      addCardModalNew.close();
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
     })
-    .then(addCardModalNew.close())
     .finally(() => {
       updateProcessingMessage("Create", addCardPopupSelector);
     });
@@ -68,23 +68,21 @@ const addCardModalNew = new PopupWithForm(addCardPopupSelector, (data) => {
 
 const confirmPopup = new PopupWithSubmit(confirmPopupSelector);
 
-const updateAvatar = new PopupWithForm(
-  avatarPopupSelector,
-  (userData) => {
-    updateProcessingMessage("Saving...", avatarPopupSelector);
-    api
-      .editAvatar(userData["image-link"])
-      .then((res) => {
-        userInfo.setUserInfo(res);
-      })
-      .catch((err) => {
-        console.log(`Error.....: ${err}`);
-      }).then(updateAvatar.close())
-      .finally(() => {
-        updateProcessingMessage("Save", avatarPopupSelector);
-      });
-  }
-);
+const updateAvatar = new PopupWithForm(avatarPopupSelector, (userData) => {
+  updateProcessingMessage("Saving...", avatarPopupSelector);
+  api
+    .editAvatar(userData["image-link"])
+    .then((res) => {
+      userInfo.setUserInfo(res);
+      updateAvatar.close();
+    })
+    .catch((err) => {
+      console.log(`Error.....: ${err}`);
+    })
+    .finally(() => {
+      updateProcessingMessage("Save", avatarPopupSelector);
+    });
+});
 
 editProfileButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
@@ -129,12 +127,12 @@ const profilePopup = new PopupWithForm(profilePopupSelector, (data) => {
         name: res.name,
         about: res.about,
         avatar: res.avatar,
-      })
-        ;
+      });
+      profilePopup.close();
     })
     .catch((err) => {
       console.log(`Error.....: ${err}`);
-    }).then(profilePopup.close())
+    })
     .finally(() => {
       updateProcessingMessage("Save", profilePopupSelector);
     });
@@ -176,10 +174,11 @@ function generateCard(data) {
           .deleteCard(id)
           .then((res) => {
             cardElement.removeCard();
+            confirmPopup.close();
           })
           .catch((err) => {
             console.log(`Error.....: ${err}`);
-          }).then(confirmPopup.close())
+          })
           .finally(() => {
             updateProcessingMessage("Yes", confirmPopupSelector);
           });
